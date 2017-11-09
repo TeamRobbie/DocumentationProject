@@ -1,9 +1,10 @@
 #Initieel verslag Nieuwpoort 9/11/17
+
 ## Afspraken
 Gebruik maken van Eagle voor PCB-design voor meer toegang tot libraries
 Communicatie tussen Arduino en RPI via bluetooth doen (alternatief Wi-Fi moeilijk te programmeren in het geval van enterprise-netwerk Odisee)
 
-##Opzoekwerk, planning en algemene ideeën
+## Opzoekwerk, planning en algemene ideeën
 Soorten sensoren opzoeken (infra-rood sensoren voor wit/zwart detectie)
 Mogelijkheden voor line tracking opzoeken => PID-regeltechniek gebruiken om de lijn zo
 nauwkeurig mogelijk te volgen
@@ -13,5 +14,5 @@ RFID-readers bekijken => voorzien dat we ID van start/finish kunnen opslaan zoda
 Eventueel mogelijkheden bekijken om sensoren van andere wagentjes te storen (lage prioriteit)
 Youtube, instructables, arduino-forum,... gebruiken voor info op te zoeken
 
-##Prioriteiten planning
+## Prioriteiten planning
 Zeker op tijd beginnen aan PCB-design 
