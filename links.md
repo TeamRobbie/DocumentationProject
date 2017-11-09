@@ -34,3 +34,6 @@ https://www.dfrobot.com/wiki/index.php/Line_Tracking_Sensor_for_Arduino_(SKU:SEN
 
 line tracking arduino library:
 https://github.com/sparkfun/SparkFun_Line_Follower_Array_Arduino_Library
+
+PID-regeling tutorial:
+http://samvrit.tk/tutorials/pid-control-arduino-line-follower-robot/
