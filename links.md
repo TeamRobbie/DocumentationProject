@@ -37,3 +37,6 @@ https://github.com/sparkfun/SparkFun_Line_Follower_Array_Arduino_Library
 
 PID-regeling tutorial:
 http://samvrit.tk/tutorials/pid-control-arduino-line-follower-robot/
+
+EAGLE-libraries:
+https://github.com/chiengineer/Eagle-Libraries
