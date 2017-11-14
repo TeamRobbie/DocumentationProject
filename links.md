@@ -40,3 +40,6 @@ http://samvrit.tk/tutorials/pid-control-arduino-line-follower-robot/
 
 EAGLE-libraries:
 https://github.com/chiengineer/Eagle-Libraries
+
+line tracking ArduinoRobot code example:
+https://www.arduino.cc/en/Tutorial/RobotLineFollowing
