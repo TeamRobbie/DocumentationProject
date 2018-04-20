@@ -1,0 +1,82 @@
+\section{PCB-ontwerp}
+\section{Sensoren en toebehoren}
+\subsection{Infrarood-sensoren}
+Zoals we reeds vermeldden is het de bedoeling dat ons voertuig een parcours autonoom kan afleggen dat afgebakend wordt door twee volle witte lijnen op een zwarte ondergrond met een witte stippelijn tussen beide. Om dergelijk parcours te kunnen navigeren zullen we onderscheid moeten kunnen maken tussen de witte en zwarte ondergrond. Voor dergelijke toepassing kiezen we voor infrarood-sensoren. We zullen hiervoor gebruik maken van de TCRT-5000-sensor, zoals u ziet in figuur~\vref{fig:tcrt5000}. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=5cm]{tcrt5000.png}
+	\caption{TCRT5000 infrarood sensor\label{fig:tcrt5000}}
+\end{figure}
+
+\subsubsection*{Sensor-cel}
+De TCRT5000 bestaat uit 2 belangrijke onderdelen: ten eerste hebben we een IR-led , deze led wordt aangestuurd met een voorschakelweerstand van $330\,\mathrm{\Omega}$. Ten tweede heeft de TCRT5000 een transistor die zich in essentie als infrarood-gevoelige weerstand gedraagt, samen met een serieweerstand van $68\,\mathrm{k\Omega}$ vormt dit een spanningsdeler. De IR-led zal infraroodgolven uitstralen, naargelang de ondergrond waar dit op invalt worden deze golven quasi volledig of amper gereflecteerd. Bij een witte ondergrond zal de reflectie groot zijn en de weerstand tussen collector en emittor bijgevolg zeer klein zijn, omgekeerd hebben we bij een zwarte ondergrond een grote weerstand. De uitgangsspaning bij de spanningsdeler met de weerstand en de TCRT5000-pinnen zoals u ziet in figuur~\vref{fig:tcrt5000cel} geeft dus een maat voor de reflectieco\"efficient van het oppervlak onder de sensor. De waarde van deze spanning wordt door een analoge pin ingelezen, uit deze inlezing kan dus afgeleid worden of de sensor zich boven een witte of een zwarte ondergrond bevindt. Bij een witte ondergrond bedraagt deze waarde ongeveer $30$ tot $50$ terwijl een zwarte ondergrond in een waarde tussen de $600$ en $800$ resulteert.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=5cm]{tcrt5000cel.png}
+	\caption{Sensor-cel met TCRT 5000\label{fig:tcrt5000cel}}
+\end{figure}
+
+\subsubsection*{Sensor-arrays}
+Om de positie van ons voertuig te detecteren ten opzichte van een witte zijlijn maakten we twee sensor-arrays van elk vier sensoren die via een multiplexer op een aparte printplaat ingelezen worden in \'e\'en analoge pin. De positionering van deze sensoren ziet u in figuur~\vref{fig:sensorarraypositionering}. In figuren~\vref{fig:sensorarrayvooraan} en~\vref{fig:sensorarrayachteraan} ziet u de twee verschillende sensorarrays.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=5cm]{sensorarraypositionering.png}
+	\caption{Sensorarray op het wagentje ten opzichte van de zijlijn\label{fig:sensorarraypositionering}}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[height=5cm]{sensorarrayvooraanonderkant.png}
+		\caption{Sensorarray linksvooraan}
+		\label{fig:sensorarrayvooraan}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[height=5cm]{sensorarrayachteraanonderkant.png}
+		\caption{Sensorarray linksachteraan}
+		\label{fig:sensorarrayachteraan}
+	\end{minipage}
+\end{figure}
+
+\subsection{Multiplexers}
+Aangezien we slechts over een beperkt aantal analoge ingangen beschikken zullen we de verschillende sensoren moeten multiplexen, hiervoor maken we gebruik van een CD4051BE-multiplexer in figuur~\vref{fig:cd4051be}, de pinout van deze IC vindt u in figuur~\vref{fig:cd4051be_pinout}. We gebruiken deze multiplexer om acht sensoren in te kunnen lezen op \'e\'en analoge pin, hiervoor gebruiken we drie digitale pinnen die de bit selects van de multiplexer aansturen.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[b]{0.4\textwidth}
+		\includegraphics[height=5cm]{cd4051be.png}
+		\caption{CD4051BE multiplexer}
+		\label{fig:cd4051be}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.4\textwidth}
+		\includegraphics[height=5cm]{cd4051be_pinout.png}
+		\caption{CD4051BE multiplexer pinout}
+		\label{fig:cd4051be_pinout}
+	\end{minipage}
+\end{figure}
+\subsection{Hall-sensor en magneten}\label{sec:hall-sensor}
+Voor het meten van de snelheid zullen we moeten bepalen hoeveel rotaties de wielen maken gedurende een bepaalde periode. Uit dit aantal rotaties kunnen we vervolgens de afgelegde weg en dus ook de snelheid berekenen. We hebben dus een manier nodig om te detecteren wanneer en hoeveel keer het wiel een rotatie maakt, daarvoor kozen we voor het gebruik van een Hall-sensor die het passeren van magneten gemonteerd in de wielas detecteert. De gebruikte Hall-sensor is een SS41 digitale Hall-sensor van Honeywell die gevoed wordt op $5\,\mathrm{V}$. In figuur ~\vref{fig:wielmagneten} ziet u de magneten die binnen in de wielas gemonteerd werden, merk op dat deze magneten een tegengestelde polarisatie hebben. In figuur~\vref{fig:hallsensor} ziet u hoe de Hall-sensor bij het wiel gemonteerd is.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[height=5cm]{wielmagneten.png}
+		\caption{Magneten gemonteerd in wielas\label{fig:wielmagneten}}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		%\includegraphics[height=5cm]{hallsensor.png}
+		\caption{Hall-sensor gemonteerd naast wiel\label{fig:hallsensor}}
+	\end{minipage}
+\end{figure}
+\subsection{Bluetooth-module}
+\subsection{RFID-reader}

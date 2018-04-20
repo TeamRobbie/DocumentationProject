@@ -1,0 +1,64 @@
+\section{IR-sensoren inlezen}
+Voor het inlezen van de sensoren wordt gebruik gemaakt van \'e\'en analoge pin, met deze pin lezen we de waardes van alle acht sensoren in via een multiplexer. Deze multiplexer wordt aangestuurd aan de hand van drie digitale pinnen die dienst doen als bit select. Om de tijdsduur voor het inlezen van de infrarood-sensoren via de multiplexer te minimaliseren lezen we deze in aan de hand van Gray-code. De volgorde van inlezen wordt verduidelijkt in tabel~\vref{table:graycode}. De ingelezen waarden worden opgeslagen in een array van acht integers. De waardes in de array worden vervolgens gedigitaliseerd aan de hand van een grenswaarde, hiervoor hebben we de waarde $300$ gekozen. Indien de sensorwaarde onder deze grens ligt ziet de sensor een witte ondergrond en krijgt dit digitaal een waarde '$1$', als de waarde boven de grens ligt komt dit overeen met een zwarte ondergrond en een digitale waarde '$0$'. 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|}
+		\hline
+		\# & Bit Select 2 & Bit Select 1 & Bit Select 0 & MUX-pin & Sensor      \\ \hline
+		0  & 0            & 0            & 0            & 13      & Vooraan 2   \\ \hline
+		1  & 0            & 0            & 1            & 14      & Vooraan 3   \\ \hline
+		3  & 0            & 1            & 1            & 12      & Vooraan 1   \\ \hline
+		2  & 0            & 1            & 0            & 15      & Vooraan 4   \\ \hline
+		6  & 1            & 1            & 0            & 2       & Achteraan 3 \\ \hline
+		7  & 1            & 1            & 1            & 7       & Achteraan 2 \\ \hline
+		5  & 1            & 0            & 1            & 5       & Achteraan 1 \\ \hline
+		4  & 1            & 0            & 0            & 7       & Achteraan 1 \\ \hline
+	\end{tabular}
+	\caption{Inlezen van sensoren aan de hand van Grey-code}
+	\label{table:graycode}
+\end{table}
+
+\section{Rijden en PID-regeling}
+Nu de sensoren ingelezen kunnen worden is het mogelijk om aan de hand hiervan de positie van het wagentje ten opzichte van de zijlijn te bepalen.
+Hiermee kan vervolgens het wagentje correct bijgestuurd worden om deze lijn te volgen. Om dit te realiseren wordt PID-regeling toegepast.
+Deze PID-regeling gebeurt aan de hand van een foutwaarde die afgeleid wordt uit de ingelezen sensorwaarden, aan elke sensor wordt dus een gewicht toegekend die een maat geeft voor de afwijking ten opzichte van de witte lijn. Deze gewichten vindt u in tabel~\vref{table:sensorgewicht}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lllll}
+		\hline
+		\multicolumn{1}{|l|}{}           & \multicolumn{1}{l|}{Vooraan 1}   & \multicolumn{1}{l|}{Vooraan 2}   & \multicolumn{1}{l|}{Vooraan 3}   & \multicolumn{1}{l|}{Vooraan 4}   \\ \hline
+		\multicolumn{1}{|l|}{Foutwaarde} & \multicolumn{1}{l|}{-3}          & \multicolumn{1}{l|}{-1}          & \multicolumn{1}{l|}{1}           & \multicolumn{1}{l|}{3}           \\ \hline
+		&                                  &                                  &                                  &                                  \\ \hline
+		\multicolumn{1}{|l|}{}           & \multicolumn{1}{l|}{Achteraan 1} & \multicolumn{1}{l|}{Achteraan 2} & \multicolumn{1}{l|}{Achteraan 3} & \multicolumn{1}{l|}{Achteraan 4} \\ \hline
+		\multicolumn{1}{|l|}{Foutwaarde} & \multicolumn{1}{l|}{3}           & \multicolumn{1}{l|}{1}           & \multicolumn{1}{l|}{-1}          & \multicolumn{1}{l|}{-3}           \\ \hline
+	\end{tabular}
+	\caption{Gewichten van sensoren}
+	\label{table:sensorgewicht}
+\end{table}
+
+De foutwaarde van de voorste sensoren wordt nu berekend met volgende formule:
+\begin{gather*}
+E_{vooraan} = \frac{\sum\limits_{i=1}^{4}S_{vooraan,i}\cdot G_{vooraan,i}}{\sum\limits_{i=1}^{4}S_{vooraan,i}}
+\end{gather*}
+Analoog wordt de foutwaarde voor de achterse sensoren gegeven door:
+\begin{gather*}
+E_{achteraan} = \frac{\sum\limits_{i=1}^{4}S_{achteraan,i}\cdot G_{achteraan,i}}{\sum\limits_{i=1}^{4}S_{achteraan,i}}
+\end{gather*}
+Hierien is $S_i$ de digitale waarde in de array, zoals reeds vermeld is deze gelijk aan $1$ indien sensor $i$ een witte ondergrond ziet en $0$ wanneer de ondergrond zwart is. $G_i$ is het gewicht van de sensor in kwestie.\\
+De totale foutwaarde wordt dan bepaald door beide foutwaarden op te tellen. Deze foutwaarde zal negatief zijn wanneer het wagentje teveel naar rechts afwijkt ten opzichte van de zijlijn, omgekeerd is deze fout positef als het wagentje te veel naar links rijdt. Als het wagentje perfect rechtdoor rijdt zullen de sensorwaardes elkaar compenseren zodat de foutwaarde $0$ wordt. In het geval dat de voorste sensorarray teveel van de baan afwijkt wordt afgestapt van werkelijke PID-regeling en wordt er overgeschakeld naar een soort pseudo PID-regeling waarbij de foutwaarde aan de hand van de laatst bepaalde foutwaarde steeds ge\"incrementeerd wordt. Wanneer de voorste sensorarray zich opnieuw boven de lijn bevindt hervat de normale PID-regeling terug.
+
+\section{Custom board}
+\section{Snelheid meten}
+In sectie~\vref{sec:hall-sensor} bespraken we reeds op welke manier we twee magneten bevestigden in de wielas die passeren bij een SS41 Hall-sensor.
+Deze twee magneten zorgen door de tegengestelde polarisatie dat de output van de SS41 omschakelt van hoog ($5\,\mathrm{V}$) naar laag ($0\,\mathrm{V}$) en vice versa bij het passeren van \'e\'en van de magneten. 
+Binnen een tijdsinterval $\Delta t$ tellen we het aantal keer $C$ dat deze omschakeling optreedt. Het aantal rotaties in dit interval is dan de helft van het aantal keer dat de sensoroutput omschakelde. Wetende dat de diamater $D$ van het wiel $7\,\mathrm{cm}$ bedraagt kunnen we de snelheid $v$ als volgt berekenen:
+
+\begin{gather*}
+v=\frac{\Delta x}{\Delta t} = \frac{\frac{C}{2}\cdot\pi\cdot D}{\Delta t}
+\end{gather*}
+\section{RFID-tags inlezen}
+\section{Bluetooth-communicatie naar Raspberry Pi}
+\subsection{Arduino met HC05-module als Slave}
+\subsection{RaspberryPi met ingebouwde Bluetooth-adapter als Master}

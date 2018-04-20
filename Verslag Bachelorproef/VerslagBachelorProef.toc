@@ -1,0 +1,28 @@
+\babel@toc {dutch}{}
+\babel@toc {dutch}{}
+\contentsline {chapter}{\numberline {1}Inleiding}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Opdrachtbeschrijving}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Doelstellingen}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Structuur}{2}{section.1.3}
+\contentsline {chapter}{\numberline {2}Taakverdeling}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Onkosten}{4}{chapter.3}
+\contentsline {chapter}{\numberline {4}Toelichting hardware}{5}{chapter.4}
+\contentsline {section}{\numberline {4.1}PCB-ontwerp}{5}{section.4.1}
+\contentsline {section}{\numberline {4.2}Sensoren en toebehoren}{5}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Infrarood-sensoren}{5}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Multiplexers}{7}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Hall-sensor en magneten}{7}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Bluetooth-module}{8}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}RFID-reader}{8}{subsection.4.2.5}
+\contentsline {chapter}{\numberline {5}Toelichting software}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}IR-sensoren inlezen}{9}{section.5.1}
+\contentsline {section}{\numberline {5.2}Rijden en PID-regeling}{9}{section.5.2}
+\contentsline {section}{\numberline {5.3}Custom board}{10}{section.5.3}
+\contentsline {section}{\numberline {5.4}Snelheid meten}{10}{section.5.4}
+\contentsline {section}{\numberline {5.5}RFID-tags inlezen}{11}{section.5.5}
+\contentsline {section}{\numberline {5.6}Bluetooth-communicatie naar Raspberry Pi}{11}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Arduino met HC05-module als Slave}{11}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}RaspberryPi met ingebouwde Bluetooth-adapter als Master}{11}{subsection.5.6.2}
+\contentsline {chapter}{\numberline {6}Problemen en moeilijkheden}{12}{chapter.6}
+\contentsline {chapter}{\numberline {7}Evaluatie coach}{13}{chapter.7}
+\contentsline {chapter}{\numberline {8}Besluit}{14}{chapter.8}
