@@ -1,5 +1,5 @@
-\select@language {dutch}
-\select@language {dutch}
+\babel@toc {dutch}{}
+\babel@toc {dutch}{}
 \contentsline {chapter}{\numberline {1}Inleiding}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}Opdrachtbeschrijving}{3}{section.1.1}
 \contentsline {section}{\numberline {1.2}Doelstellingen}{3}{section.1.2}
@@ -9,8 +9,8 @@
 \contentsline {chapter}{\numberline {4}Toelichting hardware}{6}{chapter.4}
 \contentsline {section}{\numberline {4.1}PCB-ontwerp}{6}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Eagle-ontwerp}{6}{subsection.4.1.1}
-\contentsline {subsubsection}{Schematic}{6}{section*.2}
-\contentsline {subsubsection}{Board}{7}{section*.5}
+\contentsline {subsubsection}{Schematic}{6}{section*.3}
+\contentsline {subsubsection}{Board}{7}{section*.6}
 \contentsline {section}{\numberline {4.2}Sensoren en toebehoren}{8}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Infrarood-sensoren}{8}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Multiplexers}{10}{subsection.4.2.2}
