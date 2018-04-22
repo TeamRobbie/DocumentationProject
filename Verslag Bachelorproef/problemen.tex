@@ -1,3 +1,4 @@
-\ldots\\
-\ldots\\
-\ldots
+\section{RFID-lezer en libraries}
+Voor de communicatie tussen de Arduino en de PN532 NFC-module konden we kiezen voor drie verschillende communicatie-interfaces: HSU, I\textsuperscript{2}C en SPI.
+Bij voorkeur gebruiken we voor deze communicatie SPI, het voordeel hiervan is dat dit over het algemeen veel sneller verloopt ten opzichte van I\textsuperscript{2}C-communicatie. Bij het gebruik van SPI traden er echter problemen op met het detecteren van de PN532 aangezien de gedownloade bibliotheken verouderd waren.
+HSU gebruikt dan weer pinnen D0 en D1, die we tijdens het prototypen ook gebruikten om met behulp van de seri\"ele monitor te debuggen, bijgevolgd konden we deze communicatie-interface ook niet gebruiken. Uiteindelijk kozen we er dus toch voor om gebruik te maken van I\textsuperscript{2}C, wat wel als voordeel heeft dat we minder pinnen hoeven te gebruiken.

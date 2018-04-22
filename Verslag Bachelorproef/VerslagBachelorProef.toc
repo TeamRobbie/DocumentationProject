@@ -10,22 +10,27 @@
 \contentsline {section}{\numberline {4.1}PCB-ontwerp}{6}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Eagle-ontwerp}{6}{subsection.4.1.1}
 \contentsline {subsubsection}{Schematic}{6}{section*.3}
-\contentsline {subsubsection}{Board}{7}{section*.6}
-\contentsline {section}{\numberline {4.2}Sensoren en toebehoren}{8}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Infrarood-sensoren}{8}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Multiplexers}{10}{subsection.4.2.2}
+\contentsline {subsubsection}{Board}{8}{section*.6}
+\contentsline {subsection}{\numberline {4.1.2}Pintoewijzing}{8}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Sensoren en toebehoren}{9}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Infrarood-sensoren}{9}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Multiplexers}{11}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Hall-sensor en magneten}{11}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Bluetooth-module}{11}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}RFID-reader}{11}{subsection.4.2.5}
-\contentsline {chapter}{\numberline {5}Toelichting software}{12}{chapter.5}
-\contentsline {section}{\numberline {5.1}IR-sensoren inlezen}{12}{section.5.1}
-\contentsline {section}{\numberline {5.2}Rijden en PID-regeling}{12}{section.5.2}
-\contentsline {section}{\numberline {5.3}Custom board}{13}{section.5.3}
-\contentsline {section}{\numberline {5.4}Snelheid meten}{13}{section.5.4}
-\contentsline {section}{\numberline {5.5}RFID-tags inlezen}{14}{section.5.5}
-\contentsline {section}{\numberline {5.6}Bluetooth-communicatie naar Raspberry Pi}{14}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Arduino met HC05-module als Slave}{14}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}RaspberryPi met ingebouwde Bluetooth-adapter als Master}{14}{subsection.5.6.2}
-\contentsline {chapter}{\numberline {6}Problemen en moeilijkheden}{15}{chapter.6}
-\contentsline {chapter}{\numberline {7}Evaluatie coach}{16}{chapter.7}
-\contentsline {chapter}{\numberline {8}Besluit}{17}{chapter.8}
+\contentsline {subsection}{\numberline {4.2.4}RFID-reader}{12}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Bluetooth-module}{12}{subsection.4.2.5}
+\contentsline {chapter}{\numberline {5}Toelichting software}{14}{chapter.5}
+\contentsline {section}{\numberline {5.1}IR-sensoren inlezen}{14}{section.5.1}
+\contentsline {section}{\numberline {5.2}Rijden en PID-regeling}{14}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Bijsturen van de motoren}{14}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Berekening van foutwaarde}{15}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}PID-regeling}{16}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Snelheid meten}{16}{section.5.3}
+\contentsline {section}{\numberline {5.4}RFID-tags inlezen}{17}{section.5.4}
+\contentsline {section}{\numberline {5.5}Bluetooth-communicatie naar Raspberry Pi}{17}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Arduino met HC05-module als Slave}{17}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Raspberry Pi 3 met ingebouwde Bluetooth-adapter als Master}{17}{subsection.5.5.2}
+\contentsline {section}{\numberline {5.6}Custom board progammeren}{18}{section.5.6}
+\contentsline {chapter}{\numberline {6}Problemen en moeilijkheden}{19}{chapter.6}
+\contentsline {section}{\numberline {6.1}RFID-lezer en libraries}{19}{section.6.1}
+\contentsline {chapter}{\numberline {7}Evaluatie coach}{20}{chapter.7}
+\contentsline {chapter}{\numberline {8}Besluit}{21}{chapter.8}

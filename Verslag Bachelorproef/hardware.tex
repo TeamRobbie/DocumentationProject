@@ -6,13 +6,13 @@ Om te beginnen hebben we het offici\"{e}le schema nodig van de Arduino Uno, welk
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[height=5cm]{arduino-uno-r3-schematic.png}
+	\includegraphics[width=\textwidth]{arduino-uno-r3-schematic.png}
 	\caption{Offici\"{e}le schema van de Arduino Uno\label{fig:ardsch}}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[height=5cm]{eigenschematic.png}
+	\includegraphics[width=\textwidth]{eigenschematic.png}
 	\caption{Eigen schema van de Arduino Uno\label{fig:eigensch}}
 \end{figure}
 
@@ -31,6 +31,32 @@ Nu onze eigen schematic afgerond is, kunnen we beginnen boarden. We trachtten de
 	\caption{Eigen schema van de Arduino Uno\label{fig:bottomboard}}
 \end{figure}
 
+\subsection{Pintoewijzing}
+In tabel~\ref{table:pintoewijzing} ziet u een overzicht van de hardware die aangesloten op onze custom Arduino. Deze hardware wordt nog verder besproken in dit hoofdstuk.
+
+\begin{table}[H]
+	\setlength\aboverulesep{0pt}
+	\setlength\belowrulesep{0pt}
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{@{}|l|l|l|l|l|l|@{}}
+			\toprule
+			Pin         & Input/Output & Aansluiting       & Pin          & Input/Output & Aansluiting    \\ \midrule
+			D0          & OUT          & MUX Bit select 2  & D10 ($\sim$) & /            & /              \\ \midrule
+			D1          & OUT          & MUX Bit select 1  & D11 ($\sim$) & /            & /              \\ \midrule
+			D2          & OUT          & MUX Bit select 0  & D12          & /            & /              \\ \midrule
+			D3 ($\sim$) & OUT          & PWM Motor A       & D13          & /            & /              \\ \midrule
+			D4          & IN           & Hall Sensor Input & A0           & IN            & IR-sensoren    \\ \midrule
+			D5 ($\sim$) & OUT          & Richting Motor A  & A1           & /            & /              \\ \midrule
+			D6 ($\sim$) & OUT          & Richting Motor B  & A2           & /            & /              \\ \midrule
+			D7          & IN           & Bluetooth RX      & A3           & /            & /              \\ \midrule
+			D8          & OUT          & Bluetooth TX      & A4           & IN            & RFID-lezer SDA \\ \midrule
+			D9 ($\sim$) & OUT          & PWM Motor B       & A5           & OUT            & RFID-lezer SCL \\ \bottomrule
+		\end{tabular}%
+	}
+	\caption{Pintoewijzing van custom Arduino}
+	\label{table:pintoewijzing}
+\end{table}
  
 \section{Sensoren en toebehoren}
 \subsection{Infrarood-sensoren}
@@ -78,7 +104,7 @@ Om de positie van ons voertuig te detecteren ten opzichte van een witte zijlijn 
 \end{figure}
 
 \subsection{Multiplexers}
-Aangezien we slechts over een beperkt aantal analoge ingangen beschikken zullen we de verschillende sensoren moeten multiplexen, hiervoor maken we gebruik van een CD4051BE-multiplexer in figuur~\vref{fig:cd4051be}, de pinout van deze IC vindt u in figuur~\vref{fig:cd4051be_pinout}. We gebruiken deze multiplexer om acht sensoren in te kunnen lezen op \'e\'en analoge pin, hiervoor gebruiken we drie digitale pinnen die de bit selects van de multiplexer aansturen.
+Aangezien we slechts over een beperkt aantal analoge ingangen beschikken zullen we de verschillende sensoren moeten multiplexen, hiervoor maken we gebruik van een CD4051BE-multiplexer in figuur~\vref{fig:cd4051be}, de pinout van deze IC vindt u in figuur~\vref{fig:cd4051be_pinout}. We gebruiken deze multiplexer om acht sensoren in te kunnen lezen op \'e\'en analoge pin: A0, hiervoor gebruiken we drie digitale pinnen D0,D1 en D2, die de bit selects van de multiplexer aansturen.
 
 \begin{figure}[H]
 	\centering
@@ -95,7 +121,7 @@ Aangezien we slechts over een beperkt aantal analoge ingangen beschikken zullen 
 	\end{minipage}
 \end{figure}
 \subsection{Hall-sensor en magneten}\label{sec:hall-sensor}
-Voor het meten van de snelheid zullen we moeten bepalen hoeveel rotaties de wielen maken gedurende een bepaalde periode. Uit dit aantal rotaties kunnen we vervolgens de afgelegde weg en dus ook de snelheid berekenen. We hebben dus een manier nodig om te detecteren wanneer en hoeveel keer het wiel een rotatie maakt, daarvoor kozen we voor het gebruik van een Hall-sensor die het passeren van magneten gemonteerd in de wielas detecteert. De gebruikte Hall-sensor is een SS41 digitale Hall-sensor van Honeywell die gevoed wordt op $5\,\mathrm{V}$. In figuur ~\vref{fig:wielmagneten} ziet u de magneten die binnen in de wielas gemonteerd werden, merk op dat deze magneten een tegengestelde polarisatie hebben. In figuur~\vref{fig:hallsensor} ziet u hoe de Hall-sensor bij het wiel gemonteerd is.
+Voor het meten van de snelheid zullen we moeten bepalen hoeveel rotaties de wielen maken gedurende een bepaalde periode. Uit dit aantal rotaties kunnen we vervolgens de afgelegde weg en dus ook de snelheid berekenen. We hebben dus een manier nodig om te detecteren wanneer en hoeveel keer het wiel een rotatie maakt, daarvoor kozen we voor het gebruik van een Hall-sensor die het passeren van magneten gemonteerd in de wielas detecteert. De gebruikte Hall-sensor is de SS41 digitale Hall-sensor van Honeywell die gevoed wordt op $5\,\mathrm{V}$. De output van deze sensor wordt aangesloten aan pin D4. In figuur ~\vref{fig:wielmagneten} ziet u de magneten die binnen in de wielas gemonteerd werden, merk op dat deze magneten een tegengestelde polarisatie hebben. In figuur~\vref{fig:hallsensor} ziet u hoe de Hall-sensor bij het wiel gemonteerd is.
 
 \begin{figure}[H]
 	\centering
@@ -111,5 +137,52 @@ Voor het meten van de snelheid zullen we moeten bepalen hoeveel rotaties de wiel
 		\caption{Hall-sensor gemonteerd naast wiel\label{fig:hallsensor}}
 	\end{minipage}
 \end{figure}
-\subsection{Bluetooth-module}
+
 \subsection{RFID-reader}
+Het inlezen van de RFID-tags gebeurt met behulp van de PN532 NFC-module v3 van Elechouse die u ziet in figuren~\ref{fig:pn532} en~\ref{fig:rfidlezermontage}. Deze module is voorzien van aansluitingen voor communicatie over HSU (High Speed UART), I\textsuperscript{2}C en SPI. De gewenste communicatie-interface wordt gekozen aan de hand van de twee SMD-switches op de module. We maken gebruik van I\textsuperscript{2}C om de tags in te lezen, de reden van deze keuze zullen we verder bespreken in hoofdstuk~\vref{sec:problemen-en-moeilijkheden}. We sluiten dus volgende pinnen van de PN532-module aan:
+\begin{itemize}
+	\item GND: Ground van de module, aangesloten aan de GND van onze Arduino.
+	\item VCC: Voeding van de module, aangesloten aan 5\,V van onze Arduino.
+	\item SDA: Seri\"ele data-pin van de module, wordt aangesloten aan pin A4 van onze Arduino.
+	\item SDA: Seri\"ele clock-pin van de module, wordt aangesloten aan pin A5 van onze Arduino.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[height=5cm]{rfidlezer.png}
+		\caption{PN532 NFC-module\label{fig:pn532}}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		%\includegraphics[height=5cm]{rfidlezermontage.png}
+		\caption{PN532 op het wagentje\label{fig:rfidlezermontage}}
+	\end{minipage}
+\end{figure}
+\subsection{Bluetooth-module}
+Om Bluetooth-communicatie met een Raspberry Pi3 mogelijk te maken wordt gebruik gemaakt van de HC05 Bluetooth-module. Deze module ziet u in figuren~\ref{fig:hc05} en~\ref{fig:hc05montage}. De HC05 beschikt over zes pinnen:
+\begin{itemize}
+	\item EN: Dit is een enable voor de module die actief laag is, deze moet niet aangesloten worden aangezien we de module constant actief willen.
+	\item VCC: Voeding van de module, aangesloten aan 5\,V van onze Arduino.
+	\item GND: Ground van de module, aangesloten aan de GND van onze Arduino.
+	\item TXD: Transmit-pin van de module, aangesloten aan RX van de Arduino op pin D7
+	\item RXD: Receive-pin van de module, aangesloten aan TX van de Arduino op pin D8
+	\item STATE: Geeft informatie over de toestand van de module, gaat hoog wanneer deze verbonden is en laag wanneer dat niet het geval is. Deze pin wordt niet gebruikt voor onze toepassing
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[height=5cm]{hc05.png}
+		\caption{HC05 Bluetooth-module\label{fig:hc05}}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.4\textwidth}
+		\centering
+		\includegraphics[height=5cm]{bluetoothenrfidlezer.png}
+		\caption{HC05 Bluetooth-module op het wagentje\label{fig:hc05montage}}
+	\end{minipage}
+\end{figure}
