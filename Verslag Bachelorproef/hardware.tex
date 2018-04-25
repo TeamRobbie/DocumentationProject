@@ -1,18 +1,20 @@
+In dit hoofdstuk bekijken we de gebruikte hardware meer in detail. We bespreken eerst het ontwerp van ons custom Arduino board. Vervolgens gaan we dieper in op de gebruikte sensoren en modules. Ten slotte halen we kort enkele eigenschappen van de Raspberry Pi aan die voor ons relevant zijn.
+
 \section{PCB-ontwerp}
 Voor het ontwerp van de custom Arduino PCB hebben we gewerkt met Eagle. Vertrekkende van de offici\"{e}le schematic van de Arduino Uno maken we onze eigen versie hiervan. Na de ontwerpfase kunnen we de PCB etsen, boren, bestukken en solderen. Als dit allemaal achter de rug is, testen we onze custom Arduino en lossen we nog eventuele problemen op. 
 \subsection{Eagle-ontwerp}
 \subsubsection{Schematic}
-Om te beginnen hebben we het offici\"{e}le schema nodig van de Arduino Uno, welke makkelijk online te vinden is (zie figuur~\vref{fig:ardsch}). Om te weten wat we effectief nodig hebben en wat weggelaten mag worden, bestuderen we het schema grondig. Hierdoor zien we in dat er veel weg kan vallen uit het originele ontwerp, zoals de USB to serial interface. Aangezien we beslissen om onze custom Arduino te programmeren via de ICSP-pinnen, is de aanwezigheid van een USB-connectie overbodig. Dit zorgt ervoor dat de ATMEGA16U2 chip en al zijn connecties niet nodig zijn op onze eigen PCB. Ook onze voedingslijn wordt hierdoor minder complex: we hoeven ons geen zorgen te maken om de batterijspanning af te koppelen eens we een USB-connectie zouden gebruiken van onze computer. Vervolgens zijn ook alle LED's uit het offici\"{e}le ontwerp gehaald, zodat nog een IC (die twee opamps bevat), enkele weerstanden en een ontkoppelcondensator kunnen weggelaten worden. Ten slotte integreren we de Arduino Motorshield in ons ontwerp. De hoofdcomponent van dit gedeelte bestaat uit de L298P dual full-bridge driver en bevat de nodige afschermdiodes voor de motor outputs. Het resultaat is onze vereenvoudigde versie van de Arduino Uno (zie figuur~\vref{fig:eigensch}) dat we vervolgens kunnen gaan boarden.
+Om onze custom board te ontwerpen moeten we uiteraard niet helemaal vanaf nul beginnen. We vertrokken van het offici\"{e}le schema dat makkelijk online te vinden is (zie figuur~\vref{fig:ardsch}). We bestudeerden dit schema grondig om te bepalen welke componenten we effectief nodig hebben en welke we weg kunnen laten. Hieruit bleek dat er veel onderdelen uit het originele ontwerp niet vereist zijn voor onze doeleinden. Zoals bijvoorbeeld de USB to serial interface, aangezien we beslisten om onze custom Arduino te programmeren via de ICSP-pinnen, is de aanwezigheid van een USB-connectie overbodig. Dit zorgt ervoor dat de ATMEGA16U2 chip en al zijn connecties niet nodig zijn op onze eigen PCB. Ook de voeding van de microcontroller wordt hierdoor minder complex: we hoeven ons namelijk geen zorgen te maken om het gedeelte die de batterijspanning af koppelt als er een USB-connectie gemaakt wordt. Vervolgens zijn ook alle LED's uit het offici\"{e}le ontwerp weggehaald, zodat nog een IC (dat twee opamps bevat), enkele weerstanden en een ontkoppelcondensator kunnen weggelaten worden. Ten slotte integreren we de Arduino Motorshield in ons ontwerp. De hoofdcomponent van dit gedeelte bestaat uit de L298P dual full-bridge driver en bevat de nodige afschermdiodes voor de motor outputs. Het resultaat is onze vereenvoudigde versie van de Arduino Uno (zie figuur~\vref{fig:eigensch}) dat we vervolgens kunnen gaan boarden.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{arduino-uno-r3-schematic.png}
+	\includegraphics[width=\textheight, angle=90]{arduino-uno-r3-schematic.png}
 	\caption{Offici\"{e}le schema van de Arduino Uno\label{fig:ardsch}}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{eigenschematic.png}
+	\includegraphics[width=\textheight, angle=90]{eigenschematic.png}
 	\caption{Eigen schema van de Arduino Uno\label{fig:eigensch}}
 \end{figure}
 
@@ -31,7 +33,7 @@ Nu onze eigen schematic afgerond is, kunnen we beginnen boarden. We trachtten de
 	\caption{Eigen board van de Arduino Uno\label{fig:bottomboard}}
 \end{figure}
 \subsection{Maken van de PCB}
-Het ontwerp is volledig af en we kunnen onze custom Arduino beginnen maken. Na het etsen, boren, bestukken en solderen ziet onze eigen Arduino er als volgt uit: figuur~\vref{fig:tcustardtop} is de bovenkant en figuur~\vref{fig:tcustardbot} de onderkant.
+Het ontwerp is volledig af en we kunnen onze custom Arduino beginnen maken. Na het etsen, boren, bestukken en solderen ziet onze eigen Arduino er als volgt uit: figuur~\vref{fig:custardtop} is de bovenkant en figuur~\vref{fig:custardbot} de onderkant.
 
 \begin{figure}[H]
 	\centering
@@ -46,36 +48,11 @@ Het ontwerp is volledig af en we kunnen onze custom Arduino beginnen maken. Na h
 \end{figure}
 
 
-\subsection{Pintoewijzing}
-In tabel~\ref{table:pintoewijzing} ziet u een overzicht van de hardware die aangesloten op onze custom Arduino. Deze hardware wordt nog verder besproken in dit hoofdstuk.
 
-\begin{table}[H]
-	\setlength\aboverulesep{0pt}
-	\setlength\belowrulesep{0pt}
-	\centering
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{@{}|l|l|l|l|l|l|@{}}
-			\toprule
-			Pin         & Input/Output & Aansluiting       & Pin          & Input/Output & Aansluiting    \\ \midrule
-			D0          & OUT          & MUX Bit select 2  & D10 ($\sim$) & /            & /              \\ \midrule
-			D1          & OUT          & MUX Bit select 1  & D11 ($\sim$) & /            & /              \\ \midrule
-			D2          & OUT          & MUX Bit select 0  & D12          & /            & /              \\ \midrule
-			D3 ($\sim$) & OUT          & PWM Motor A       & D13          & /            & /              \\ \midrule
-			D4          & IN           & Hall Sensor Input & A0           & IN            & IR-sensoren    \\ \midrule
-			D5 ($\sim$) & OUT          & Richting Motor A  & A1           & /            & /              \\ \midrule
-			D6 ($\sim$) & OUT          & Richting Motor B  & A2           & /            & /              \\ \midrule
-			D7          & IN           & Bluetooth RX      & A3           & /            & /              \\ \midrule
-			D8          & OUT          & Bluetooth TX      & A4           & IN            & RFID-lezer SDA \\ \midrule
-			D9 ($\sim$) & OUT          & PWM Motor B       & A5           & OUT            & RFID-lezer SCL \\ \bottomrule
-		\end{tabular}%
-	}
-	\caption{Pintoewijzing van custom Arduino}
-	\label{table:pintoewijzing}
-\end{table}
  
 \section{Sensoren en toebehoren}
 \subsection{Infrarood-sensoren}
-Zoals we reeds vermeldden is het de bedoeling dat ons voertuig een parcours autonoom kan afleggen dat afgebakend wordt door twee volle witte lijnen op een zwarte ondergrond met een witte stippelijn tussen beide. Om dergelijk parcours te kunnen navigeren zullen we onderscheid moeten kunnen maken tussen de witte en zwarte ondergrond. Voor dergelijke toepassing kiezen we voor infrarood-sensoren. We zullen hiervoor gebruik maken van de TCRT-5000-sensor, zoals u ziet in figuur~\vref{fig:tcrt5000}. 
+Zoals we reeds vermeldden is het de bedoeling dat ons voertuig een parcours autonoom kan afleggen dat afgebakend wordt door twee volle witte lijnen op een zwarte ondergrond met een witte stippelijn tussen beide. Om dergelijk parcours te kunnen navigeren zullen we onderscheid moeten kunnen maken tussen de witte en zwarte ondergrond. Voor dergelijke toepassing kiezen we voor infrarood-sensoren. We zullen hiervoor gebruik maken van de TCRT-5000-sensor, zoals te zien is in figuur~\vref{fig:tcrt5000}. 
 
 \begin{figure}[H]
 	\centering
@@ -93,7 +70,7 @@ De TCRT5000 bestaat uit 2 belangrijke onderdelen: ten eerste hebben we een IR-le
 \end{figure}
 
 \subsubsection*{Sensor-arrays}
-Om de positie van ons voertuig te detecteren ten opzichte van een witte zijlijn maakten we twee sensor-arrays van elk vier sensoren die via een multiplexer op een aparte printplaat ingelezen worden in \'e\'en analoge pin. De positionering van deze sensoren ziet u in figuur~\vref{fig:sensorarraypositionering}. In figuren~\vref{fig:sensorarrayvooraan} en~\vref{fig:sensorarrayachteraan} ziet u de twee verschillende sensorarrays.
+Om de positie van ons voertuig te detecteren ten opzichte van een witte zijlijn maakten we twee sensor-arrays van elk vier sensoren die via een multiplexer op een aparte printplaat ingelezen worden in \'e\'en analoge pin. We positioneerden deze linksvooraan en linksachteraan het wagentje met behulp van 3D-geprinte en verstelbare armen, op deze manier kunnen we de zijlijn langs de linkerkant van het parcours detecteren. Het voordeel hiervan is ook dat we in de bochten van de baan vrij stabiel kunnen bijsturen. Na een aantal verschillende positioneringen bleek dit de beste resultaten op te leveren. De positionering van de sensor-arrays is te zien in figuur~\vref{fig:sensorarraypositionering}. In figuren~\vref{fig:sensorarrayvooraan} en~\vref{fig:sensorarrayachteraan} ziet u de twee verschillende sensorarrays aan de onderzijde.
 
 \begin{figure}[H]
 	\centering
@@ -119,24 +96,24 @@ Om de positie van ons voertuig te detecteren ten opzichte van een witte zijlijn 
 \end{figure}
 
 \subsection{Multiplexers}
-Aangezien we slechts over een beperkt aantal analoge ingangen beschikken zullen we de verschillende sensoren moeten multiplexen, hiervoor maken we gebruik van een CD4051BE-multiplexer in figuur~\vref{fig:cd4051be}, de pinout van deze IC vindt u in figuur~\vref{fig:cd4051be_pinout}. We gebruiken deze multiplexer om acht sensoren in te kunnen lezen op \'e\'en analoge pin: A0, hiervoor gebruiken we drie digitale pinnen D0,D1 en D2, die de bit selects van de multiplexer aansturen.
+Aangezien we slechts over een beperkt aantal analoge ingangen beschikken zullen we de verschillende sensoren moeten multiplexen, hiervoor maken we gebruik van een CD4051BE-multiplexer op een aparte PCB vooraan het wagentje. In figuur~\vref{fig:cd4051be_pinout} ziet u de pinout van dit IC, de PCB met de multiplexer is te zien in figuur~\vref{fig:muxvooraan}. We gebruiken deze multiplexer om de acht sensoren in de twee sensor-arrays in te kunnen lezen op \'e\'en analoge pin: A0. We gebruiken hiervoor drie digitale pinnen D0,D1 en D2, die de bit selects van de multiplexer aansturen.
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}[b]{0.4\textwidth}
-		\includegraphics[height=5cm]{cd4051be.png}
-		\caption{CD4051BE multiplexer}
-		\label{fig:cd4051be}
-	\end{minipage}
-	\hfill
 	\begin{minipage}[b]{0.4\textwidth}
 		\includegraphics[height=5cm]{cd4051be_pinout.png}
 		\caption{CD4051BE multiplexer pinout}
 		\label{fig:cd4051be_pinout}
 	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.4\textwidth}
+		\includegraphics[height=5cm]{muxvooraan.png}
+		\caption{PCB met CD4051BE multiplexer vooraan het wagentje}
+		\label{fig:muxvooraan}
+	\end{minipage}
 \end{figure}
 \subsection{Hall-sensor en magneten}\label{sec:hall-sensor}
-Voor het meten van de snelheid zullen we moeten bepalen hoeveel rotaties de wielen maken gedurende een bepaalde periode. Uit dit aantal rotaties kunnen we vervolgens de afgelegde weg en dus ook de snelheid berekenen. We hebben dus een manier nodig om te detecteren wanneer en hoeveel keer het wiel een rotatie maakt, daarvoor kozen we voor het gebruik van een Hall-sensor die het passeren van magneten gemonteerd in de wielas detecteert. De gebruikte Hall-sensor is de SS41 digitale Hall-sensor van Honeywell die gevoed wordt op $5\,\mathrm{V}$. De output van deze sensor wordt aangesloten aan pin D4. In figuur ~\vref{fig:wielmagneten} ziet u de magneten die binnen in de wielas gemonteerd werden, merk op dat deze magneten een tegengestelde polarisatie hebben. In figuur~\vref{fig:hallsensor} ziet u hoe de Hall-sensor bij het wiel gemonteerd is.
+Voor het meten van de snelheid zullen we moeten bepalen hoeveel rotaties de wielen maken gedurende een bepaalde periode. Uit dit aantal rotaties kunnen we vervolgens de afgelegde weg en dus ook de snelheid berekenen. We hebben dus een manier nodig om te detecteren wanneer en hoeveel keer het wiel een rotatie maakt, daarvoor kozen we voor het gebruik van een Hall-sensor die het passeren van magneten gemonteerd in de wielas detecteert. De gebruikte Hall-sensor is de SS41 digitale Hall-sensor van Honeywell die gevoed wordt op $5\,\mathrm{V}$. De output van deze sensor wordt aangesloten aan pin D4. In figuur ~\vref{fig:wielmagneten} ziet u de magneten die binnen in de wielas gemonteerd werden, merk op dat deze magneten een tegengestelde polarisatie hebben zodanig dat de output van de Hall-sensor correct omschakelt als deze magneten beurtelings passeren. In figuur~\vref{fig:hallsensor} ziet u hoe de Hall-sensor bij het wiel gemonteerd is.
 
 \begin{figure}[H]
 	\centering
@@ -148,7 +125,7 @@ Voor het meten van de snelheid zullen we moeten bepalen hoeveel rotaties de wiel
 	\hfill
 	\begin{minipage}[b]{0.4\textwidth}
 		\centering
-		%\includegraphics[height=5cm]{hallsensor.png}
+		\includegraphics[height=5cm]{hallsensor.png}
 		\caption{Hall-sensor gemonteerd naast wiel\label{fig:hallsensor}}
 	\end{minipage}
 \end{figure}
@@ -172,12 +149,14 @@ Het inlezen van de RFID-tags gebeurt met behulp van de PN532 NFC-module v3 van E
 	\hfill
 	\begin{minipage}[b]{0.4\textwidth}
 		\centering
-		%\includegraphics[height=5cm]{rfidlezermontage.png}
+		\includegraphics[height=5cm]{rfidlezermontage.png}
 		\caption{PN532 op het wagentje\label{fig:rfidlezermontage}}
 	\end{minipage}
 \end{figure}
 \subsection{Bluetooth-module}
-Om Bluetooth-communicatie met een Raspberry Pi3 mogelijk te maken wordt gebruik gemaakt van de HC05 Bluetooth-module. Deze module ziet u in figuren~\ref{fig:hc05} en~\ref{fig:hc05montage}. De HC05 beschikt over zes pinnen:
+Een onderdeel van de opdracht bestond er uit om communicatie te voorzien tussen ons wagentje met een Arduino-microcontroller enerzijds, en een Raspberry Pi anderszijds. Om dit te realiseren kozen we er voor om Bluetooth te gebruiken.
+We maken gebruik van een HC05 Bluetooth-module om deze communicatie mogelijk te maken.
+Deze module ziet u in figuren~\ref{fig:hc05} en~\ref{fig:hc05montage}. De HC05 beschikt over zes pinnen:
 \begin{itemize}
 	\item EN: Dit is een enable voor de module die actief laag is, deze moet niet aangesloten worden aangezien we de module constant actief willen.
 	\item VCC: Voeding van de module, aangesloten aan 5\,V van onze Arduino.
@@ -200,4 +179,39 @@ Om Bluetooth-communicatie met een Raspberry Pi3 mogelijk te maken wordt gebruik 
 		\includegraphics[height=5cm]{bluetoothenrfidlezer.png}
 		\caption{HC05 Bluetooth-module op het wagentje\label{fig:hc05montage}}
 	\end{minipage}
+\end{figure}
+
+\subsection{Pintoewijzing}
+We zagen in voorgaande secties het ontwerp van ons custom Arduino board en de bijkomende hardware. In tabel~\ref{table:pintoewijzing} ziet u een overzicht van de aansluitingen tussen deze hardware en de pinnen van het board.
+
+\begin{table}[H]
+	\setlength\aboverulesep{0pt}
+	\setlength\belowrulesep{0pt}
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{@{}|l|l|l|l|l|l|@{}}
+			\toprule
+			Pin         & Input/Output & Aansluiting       & Pin          & Input/Output & Aansluiting    \\ \midrule
+			D0          & OUT          & MUX Bit select 2  & D10 ($\sim$) & /            & /              \\ \midrule
+			D1          & OUT          & MUX Bit select 1  & D11 ($\sim$) & /            & /              \\ \midrule
+			D2          & OUT          & MUX Bit select 0  & D12          & /            & /              \\ \midrule
+			D3 ($\sim$) & OUT          & PWM Motor A       & D13          & /            & /              \\ \midrule
+			D4          & IN           & Hall Sensor Input & A0           & IN            & IR-sensoren    \\ \midrule
+			D5 ($\sim$) & OUT          & Richting Motor A  & A1           & /            & /              \\ \midrule
+			D6 ($\sim$) & OUT          & Richting Motor B  & A2           & /            & /              \\ \midrule
+			D7          & IN           & Bluetooth RX      & A3           & /            & /              \\ \midrule
+			D8          & OUT          & Bluetooth TX      & A4           & IN            & RFID-lezer SDA \\ \midrule
+			D9 ($\sim$) & OUT          & PWM Motor B       & A5           & OUT            & RFID-lezer SCL \\ \bottomrule
+		\end{tabular}%
+	}
+	\caption{Pintoewijzing van custom Arduino}
+	\label{table:pintoewijzing}
+\end{table}
+
+\section{Raspberry Pi}
+Ten slotte hebben we nog de Raspberry Pi. We maken gebruik van een Raspberry Pi 3 zoals u ziet in figuur~\vref{fig:rpi3}. Dit is in principe een computer waarop een Linux-distributie draait. We sluiten op de RPi3 via USB nog een muis en toetsenbord aan, de monitor wordt verbonden met een HDMI-kabel. We maken geen gebruik van de voorziene I/O-pinnen. Belangrijk is dat deze Raspberry Pi 3 een ingebouwde Bluetooth-adapter heeft en we dus geen bijkomende Bluetooth-dongle nodig hebben. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=5cm]{rpi3.png}
+	\caption{Raspberry Pi 3\label{fig:rpi3}}
 \end{figure}
