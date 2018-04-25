@@ -17,19 +17,34 @@ Om te beginnen hebben we het offici\"{e}le schema nodig van de Arduino Uno, welk
 \end{figure}
 
 \subsubsection{Board}
-Nu onze eigen schematic afgerond is, kunnen we beginnen boarden. We trachtten de PCB zo klein mogelijk te maken door de componenten zowel op de top- als de bottom-layer te plaatsen. We hebben ervoor gekozen de twee chips (de ATMEGA328P en de L298P) op de bottom-layer te plaatsen samen met de de nodige ontkoppelcondensatoren. De andere componenten staan op de top-layer. Na het routing proces bestaat onze PCB uit 20 via's. De top- en bottom-layer van de PCB kan u vinden in respectievelijk figuur~\vref{fig:topboard} en figuur~\vref{fig:bottomboard}.
+Nu onze eigen schematic afgerond is, kunnen we beginnen boarden. We trachtten de PCB zo klein mogelijk te maken door de componenten zowel op de top- als de bottom-layer te plaatsen. We hebben ervoor gekozen de twee chips (de ATMEGA328P en de L298P) op de bottom-layer te plaatsen samen met de de nodige ontkoppelcondensatoren. De andere componenten staan op de top-layer. Na het routing proces bestaat onze PCB uit 20 via's. We hebben ook een massa vlak voorzien aan de bovenkant. De top- en bottom-layer van de PCB kan u vinden in respectievelijk figuur~\vref{fig:topboard} en figuur~\vref{fig:bottomboard}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[height=5cm]{topboard.png}
-	\caption{Eigen schema van de Arduino Uno\label{fig:topboard}}
+	\caption{Eigen board van de Arduino Uno\label{fig:topboard}}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[height=5cm]{bottomboard.png}
-	\caption{Eigen schema van de Arduino Uno\label{fig:bottomboard}}
+	\caption{Eigen board van de Arduino Uno\label{fig:bottomboard}}
 \end{figure}
+\subsection{Maken van de PCB}
+Het ontwerp is volledig af en we kunnen onze custom Arduino beginnen maken. Na het etsen, boren, bestukken en solderen ziet onze eigen Arduino er als volgt uit: figuur~\vref{fig:tcustardtop} is de bovenkant en figuur~\vref{fig:tcustardbot} de onderkant.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{eigenpcbarduino.png}
+	\caption{Bovenkant van onze custom Arduino\label{fig:custardtop}}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{eigenpcb2.png}
+	\caption{Onderkant van onze custom Arduino\label{fig:custardbot}}
+\end{figure}
+
 
 \subsection{Pintoewijzing}
 In tabel~\ref{table:pintoewijzing} ziet u een overzicht van de hardware die aangesloten op onze custom Arduino. Deze hardware wordt nog verder besproken in dit hoofdstuk.
