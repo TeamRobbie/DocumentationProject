@@ -6,6 +6,8 @@ Voor het ontwerp van de custom Arduino PCB hebben we gewerkt met Eagle. Vertrekk
 \subsubsection{Schematic}
 Om onze custom board te ontwerpen moeten we uiteraard niet helemaal vanaf nul beginnen. We vertrokken van het offici\"{e}le schema dat makkelijk online te vinden is (zie figuur~\vref{fig:ardsch}). We bestudeerden dit schema grondig om te bepalen welke componenten we effectief nodig hebben en welke we weg kunnen laten. Hieruit bleek dat er veel onderdelen uit het originele ontwerp niet vereist zijn voor onze doeleinden. Zoals bijvoorbeeld de USB to serial interface, aangezien we beslisten om onze custom Arduino te programmeren via de ICSP-pinnen, is de aanwezigheid van een USB-connectie overbodig. Dit zorgt ervoor dat de ATMEGA16U2 chip en al zijn connecties niet nodig zijn op onze eigen PCB. Ook de voeding van de microcontroller wordt hierdoor minder complex: we hoeven ons namelijk geen zorgen te maken om het gedeelte die de batterijspanning afkoppelt als er een USB-connectie gemaakt wordt. Vervolgens zijn ook alle LED's uit het offici\"{e}le ontwerp weggehaald, zodat nog een IC (dat twee opamps bevat), enkele weerstanden en een ontkoppelcondensator kunnen weggelaten worden. Ten slotte integreren we de Arduino Motorshield in ons ontwerp. De hoofdcomponent van dit gedeelte bestaat uit de L298P dual full-bridge driver en bevat de nodige afschermdiodes voor de motor outputs. Het resultaat is onze vereenvoudigde versie van de Arduino Uno (zie figuur~\vref{fig:eigensch}) dat we vervolgens kunnen gaan boarden.
 
+We lichten ook even de dual full-bridge driver toe. Deze chip is verantwoordelijk voor het aansturen van onze dc-motoren. Het schema van deze chip kan u vinden in figuur~\vref{fig:bridge}. Er zijn drie belangrijke aansluitingen aanwezig: de IN-, EN- en OUT-pinnen. Aan de IN-pinnen sluiten we een signaal aan dat de draairichting van de motoren bepaalt. Hiervoor gebruiken we de signalen dirA en dirB in ons schema. Concreet wordt dirA op IN1 en zijn inverse op IN2 aangesloten (zelfde prinicipe voor dirB, IN3 en IN4). Dit zorgt ervoor dat de juiste AND-poorten aangesproken worden en zo de correcte richting bepalen van de motoren. De dc-motoren worden vervolgens aangestuurd door een PWM-signaal. Dit signaal komt aan de ingangen van alle vier de AND-poorten. Op deze manier kunnen we aan de hand van de duty-cycle van het PWM-signaal de snelheid van de motoren bepalen. Dit signaal wordt dan uitgestuurd naar de OUT-klemmen, maar dan wel met een amplitude gelijk aan de Vs-ingangsspanning (bij ons is dit de spanning van onze batterij. Uiteindelijk komt het gewenste PWM-signaal aan de OUT-klemmen terecht: dit is het signaal dat aan de motoren wordt aangeboden. 
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textheight, angle=90]{arduino-uno-r3-schematic.png}
@@ -17,6 +19,13 @@ Om onze custom board te ontwerpen moeten we uiteraard niet helemaal vanaf nul be
 	\includegraphics[width=\textheight, angle=90]{eigenschematic.png}
 	\caption{Eigen schema van de Arduino Uno\label{fig:eigensch}}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textheight, angle=90]{bridge.png}
+	\caption{Block diagram van de dual full-bridge driver\label{fig:bridge}}
+\end{figure}
+
 
 \subsubsection{Board}
 Nu onze eigen schematic afgerond is, kunnen we beginnen boarden. We trachtten de PCB zo klein mogelijk te maken door de componenten zowel op de top- als de bottom-layer te plaatsen. We hebben ervoor gekozen de twee chips (de ATMEGA328P en de L298P) op de bottom-layer te plaatsen samen met de de nodige ontkoppelcondensatoren. De andere componenten staan op de top-layer. Na het routing proces bestaat onze PCB uit 20 via's. We hebben ook een massavlak voorzien aan de bovenkant. De top- en bottom-layer van de PCB kan u vinden in respectievelijk figuur~\vref{fig:topboard} en figuur~\vref{fig:bottomboard}.
