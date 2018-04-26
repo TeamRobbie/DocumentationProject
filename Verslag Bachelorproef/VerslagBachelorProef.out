@@ -29,15 +29,16 @@
 \BOOKMARK [1][-]{section.5.5}{Bluetooth-communicatie naar Raspberry Pi}{chapter.5}% 29
 \BOOKMARK [2][-]{subsection.5.5.1}{Arduino met HC05-module als Slave}{section.5.5}% 30
 \BOOKMARK [2][-]{subsection.5.5.2}{Raspberry Pi 3 met ingebouwde Bluetooth-adapter als Master}{section.5.5}% 31
-\BOOKMARK [1][-]{section.5.6}{Custom board progammeren}{chapter.5}% 32
-\BOOKMARK [0][-]{chapter.6}{Problemen en moeilijkheden}{}% 33
-\BOOKMARK [1][-]{section.6.1}{Rijden aan de hand van PID-regeling}{chapter.6}% 34
-\BOOKMARK [2][-]{subsection.6.1.1}{Positionering van de sensoren}{section.6.1}% 35
-\BOOKMARK [2][-]{subsection.6.1.2}{Bepalen van de PID-constanten}{section.6.1}% 36
-\BOOKMARK [1][-]{section.6.2}{Bluetooth-communicatie}{chapter.6}% 37
-\BOOKMARK [1][-]{section.6.3}{RFID-lezer}{chapter.6}% 38
-\BOOKMARK [2][-]{subsection.6.3.1}{Libraries}{section.6.3}% 39
-\BOOKMARK [2][-]{subsection.6.3.2}{Duur van het inlezen}{section.6.3}% 40
-\BOOKMARK [1][-]{section.6.4}{Arduino PCB}{chapter.6}% 41
-\BOOKMARK [0][-]{chapter.7}{Evaluatie coach}{}% 42
-\BOOKMARK [0][-]{chapter.8}{Besluit}{}% 43
+\BOOKMARK [1][-]{section.5.6}{Overzicht Arduino-programma}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.7}{Custom board progammeren}{chapter.5}% 33
+\BOOKMARK [0][-]{chapter.6}{Problemen en moeilijkheden}{}% 34
+\BOOKMARK [1][-]{section.6.1}{Rijden aan de hand van PID-regeling}{chapter.6}% 35
+\BOOKMARK [2][-]{subsection.6.1.1}{Positionering van de sensoren}{section.6.1}% 36
+\BOOKMARK [2][-]{subsection.6.1.2}{Bepalen van de PID-constanten}{section.6.1}% 37
+\BOOKMARK [1][-]{section.6.2}{Bluetooth-communicatie}{chapter.6}% 38
+\BOOKMARK [1][-]{section.6.3}{RFID-lezer}{chapter.6}% 39
+\BOOKMARK [2][-]{subsection.6.3.1}{Libraries}{section.6.3}% 40
+\BOOKMARK [2][-]{subsection.6.3.2}{Duur van het inlezen}{section.6.3}% 41
+\BOOKMARK [1][-]{section.6.4}{Arduino PCB}{chapter.6}% 42
+\BOOKMARK [0][-]{chapter.7}{Evaluatie coach}{}% 43
+\BOOKMARK [0][-]{chapter.8}{Besluit}{}% 44

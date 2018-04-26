@@ -33,15 +33,16 @@
 \contentsline {section}{\numberline {5.5}Bluetooth-communicatie naar Raspberry Pi}{24}{section.5.5}
 \contentsline {subsection}{\numberline {5.5.1}Arduino met HC05-module als Slave}{24}{subsection.5.5.1}
 \contentsline {subsection}{\numberline {5.5.2}Raspberry Pi 3 met ingebouwde Bluetooth-adapter als Master}{24}{subsection.5.5.2}
-\contentsline {section}{\numberline {5.6}Custom board progammeren}{25}{section.5.6}
-\contentsline {chapter}{\numberline {6}Problemen en moeilijkheden}{27}{chapter.6}
-\contentsline {section}{\numberline {6.1}Rijden aan de hand van PID-regeling}{27}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Positionering van de sensoren}{27}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Bepalen van de PID-constanten}{27}{subsection.6.1.2}
-\contentsline {section}{\numberline {6.2}Bluetooth-communicatie}{28}{section.6.2}
-\contentsline {section}{\numberline {6.3}RFID-lezer}{28}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Libraries}{28}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Duur van het inlezen}{28}{subsection.6.3.2}
-\contentsline {section}{\numberline {6.4}Arduino PCB}{28}{section.6.4}
-\contentsline {chapter}{\numberline {7}Evaluatie coach}{29}{chapter.7}
-\contentsline {chapter}{\numberline {8}Besluit}{30}{chapter.8}
+\contentsline {section}{\numberline {5.6}Overzicht Arduino-programma}{25}{section.5.6}
+\contentsline {section}{\numberline {5.7}Custom board progammeren}{27}{section.5.7}
+\contentsline {chapter}{\numberline {6}Problemen en moeilijkheden}{28}{chapter.6}
+\contentsline {section}{\numberline {6.1}Rijden aan de hand van PID-regeling}{28}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Positionering van de sensoren}{28}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Bepalen van de PID-constanten}{28}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Bluetooth-communicatie}{29}{section.6.2}
+\contentsline {section}{\numberline {6.3}RFID-lezer}{29}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Libraries}{29}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Duur van het inlezen}{29}{subsection.6.3.2}
+\contentsline {section}{\numberline {6.4}Arduino PCB}{29}{section.6.4}
+\contentsline {chapter}{\numberline {7}Evaluatie coach}{30}{chapter.7}
+\contentsline {chapter}{\numberline {8}Besluit}{31}{chapter.8}

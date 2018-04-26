@@ -106,6 +106,15 @@ Het verzenden en lezen van data wordt nu gedaan aan de hand van een Python-scrip
 	\caption{Voorbeeld van ingeven PID-constanten en ontvangen data in Python Shell\label{fig:bluetoothoutput}}
 \end{figure}
 
+\section{Overzicht Arduino-programma}
+In voorgaande secties werd de werking van onze software per onderdeel in meer detail besproken. De manier waarop al deze code samenwerkt als \'e\'en geheel wordt ge\"illustreerd in de flowchart in figuur~\vref{fig:arduinoflowchart}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=\textheight]{arduinoflowchart.png}
+	\caption{Flowchart Arduino-programma\label{fig:arduinoflowchart}}
+	\end{figure}
+
 \section{Custom board progammeren}
 In het ontwerp hebben we geen voorzieningen getroffen om de ATMega-chip te programmeren via USB-aansluiting, we voorzagen echter wel ICSP-pinnen. Om onze eigen Arduino te programmeren gebruiken we een andere Arduino Uno die dienst doet als programmer. Op deze Arduino uploaden we het ArduinoISP-programma uit de standaard Arduino-libraries. Vervolgens verbinden we ons te programmeren board met deze Arduino gebaseerd op de verbindingen in figuur~\vref{fig:arduinoisp}. Om de programmer-Arduino via USB-interface verbonden is aan de computer plaatsen we nog een condensator van $10\,\mathrm{\mu F}$ tussen de reset en ground van de programmer. Vervolgens branden we de bootloader naar de ATMega-chip op ons eigen board. Onze custom board kan nu geprogrammeerd worden.
 

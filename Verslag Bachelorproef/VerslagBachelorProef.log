@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.19)  26 APR 2018 12:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.19)  26 APR 2018 17:00
 entering extended mode
 **./VerslagBachelorProef.tex
 (VerslagBachelorProef.tex
@@ -653,7 +653,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-<cover_fiiw_gent.pdf, id=175, 597.432pt x 845.07718pt>
+<cover_fiiw_gent.pdf, id=179, 597.432pt x 845.07718pt>
 File: cover_fiiw_gent.pdf Graphic file (type pdf)
 <use cover_fiiw_gent.pdf>
 Package pdftex.def Info: cover_fiiw_gent.pdf  used on input line 81.
@@ -804,7 +804,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 1.
-<parcoursvoorbeeld.png, id=258, 1150.89975pt x 584.78474pt>
+<parcoursvoorbeeld.png, id=263, 1150.89975pt x 584.78474pt>
 File: parcoursvoorbeeld.png Graphic file (type png)
 <use parcoursvoorbeeld.png>
 Package pdftex.def Info: parcoursvoorbeeld.png  used on input line 5.
@@ -930,7 +930,7 @@ Package babel Info: Redefining dutch shorthand "~
  [7
 
 ]
-<arduino-uno-r3-schematic.png, id=291, 1167.36125pt x 646.415pt>
+<arduino-uno-r3-schematic.png, id=296, 1167.36125pt x 646.415pt>
 File: arduino-uno-r3-schematic.png Graphic file (type png)
 <use arduino-uno-r3-schematic.png>
 Package pdftex.def Info: arduino-uno-r3-schematic.png  used on input line 13.
@@ -955,7 +955,7 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 16.
  [9 <./arduino-uno-r3-schematic.png>]
-<eigenschematic.png, id=301, 2211.462pt x 1488.762pt>
+<eigenschematic.png, id=306, 2211.462pt x 1488.762pt>
 File: eigenschematic.png Graphic file (type png)
 <use eigenschematic.png>
 Package pdftex.def Info: eigenschematic.png  used on input line 19.
@@ -977,7 +977,7 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 22.
  [10 <./eigenschematic.png (PNG copy)>]
-<bridge.png, id=306, 710.655pt x 481.04718pt>
+<bridge.png, id=311, 710.655pt x 481.04718pt>
 File: bridge.png Graphic file (type png)
 <use bridge.png>
 Package pdftex.def Info: bridge.png  used on input line 25.
@@ -999,12 +999,12 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 28.
  [11 <./bridge.png>]
-<topboard.png, id=314, 682.2288pt x 365.06674pt>
+<topboard.png, id=319, 682.2288pt x 365.06674pt>
 File: topboard.png Graphic file (type png)
 <use topboard.png>
 Package pdftex.def Info: topboard.png  used on input line 35.
 (pdftex.def)             Requested size: 265.85995pt x 142.26378pt.
-<bottomboard.png, id=315, 760.69337pt x 408.01578pt>
+<bottomboard.png, id=320, 760.69337pt x 408.01578pt>
 File: bottomboard.png Graphic file (type png)
 <use bottomboard.png>
 Package pdftex.def Info: bottomboard.png  used on input line 41.
@@ -1013,7 +1013,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 44.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 44.
-<eigenpcbarduino.png, id=318, 3035.34pt x 4047.12pt>
+<eigenpcbarduino.png, id=323, 3035.34pt x 4047.12pt>
 File: eigenpcbarduino.png Graphic file (type png)
 <use eigenpcbarduino.png>
 Package pdftex.def Info: eigenpcbarduino.png  used on input line 49.
@@ -1027,7 +1027,7 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 52.
  [12 <./topboard.png (PNG copy)> <./bottomboard.png (PNG copy)>]
-<eigenpcb2.png, id=329, 3035.34pt x 4047.12pt>
+<eigenpcb2.png, id=334, 3035.34pt x 4047.12pt>
 File: eigenpcb2.png Graphic file (type png)
 <use eigenpcb2.png>
 Package pdftex.def Info: eigenpcb2.png  used on input line 55.
@@ -1059,12 +1059,12 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 65.
  [14 <./eigenpcb2.png>]
-<tcrt5000.png, id=339, 385.44pt x 385.44pt>
+<tcrt5000.png, id=344, 385.44pt x 385.44pt>
 File: tcrt5000.png Graphic file (type png)
 <use tcrt5000.png>
 Package pdftex.def Info: tcrt5000.png  used on input line 68.
 (pdftex.def)             Requested size: 142.26357pt x 142.26378pt.
-<tcrt5000cel.png, id=341, 550.4565pt x 389.0535pt>
+<tcrt5000cel.png, id=346, 550.4565pt x 389.0535pt>
 File: tcrt5000cel.png Graphic file (type png)
 <use tcrt5000cel.png>
 Package pdftex.def Info: tcrt5000cel.png  used on input line 77.
@@ -1078,18 +1078,18 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 80.
  [15 <./tcrt5000.png>]
-<sensorarraypositionering.png, id=354, 472.76625pt x 399.29175pt>
+<sensorarraypositionering.png, id=359, 472.76625pt x 399.29175pt>
 File: sensorarraypositionering.png Graphic file (type png)
 <use sensorarraypositionering.png>
 Package pdftex.def Info: sensorarraypositionering.png  used on input line 86.
 (pdftex.def)             Requested size: 168.44275pt x 142.26378pt.
-<sensorarrayvooraanonderkant.png, id=355, 3035.34pt x 4047.12pt>
+<sensorarrayvooraanonderkant.png, id=360, 3035.34pt x 4047.12pt>
 File: sensorarrayvooraanonderkant.png Graphic file (type png)
 <use sensorarrayvooraanonderkant.png>
 Package pdftex.def Info: sensorarrayvooraanonderkant.png  used on input line 94
 .
 (pdftex.def)             Requested size: 106.6646pt x 142.26378pt.
-<sensorarrayachteraanonderkant.png, id=356, 3035.34pt x 4047.12pt>
+<sensorarrayachteraanonderkant.png, id=361, 3035.34pt x 4047.12pt>
 File: sensorarrayachteraanonderkant.png Graphic file (type png)
 <use sensorarrayachteraanonderkant.png>
 Package pdftex.def Info: sensorarrayachteraanonderkant.png  used on input line 
@@ -1109,7 +1109,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 107.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 107.
-<cd4051be_pinout.png, id=366, 251.7405pt x 181.8795pt>
+<cd4051be_pinout.png, id=371, 251.7405pt x 181.8795pt>
 File: cd4051be_pinout.png Graphic file (type png)
 <use cd4051be_pinout.png>
 Package pdftex.def Info: cd4051be_pinout.png  used on input line 113.
@@ -1119,7 +1119,7 @@ Overfull \hbox (26.196pt too wide) in paragraph at lines 113--114
 [][] 
  []
 
-<muxvooraan.png, id=367, 3035.34pt x 4047.12pt>
+<muxvooraan.png, id=372, 3035.34pt x 4047.12pt>
 File: muxvooraan.png Graphic file (type png)
 <use muxvooraan.png>
 Package pdftex.def Info: muxvooraan.png  used on input line 119.
@@ -1138,7 +1138,7 @@ Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 126.
 [17 <./sensorarrayvooraanonderkant.png> <./sensorarrayachteraanonderkant.png> <
 ./cd4051be_pinout.png> <./muxvooraan.png>]
-<wielmagneten.png, id=377, 3035.34pt x 4047.12pt>
+<wielmagneten.png, id=382, 3035.34pt x 4047.12pt>
 File: wielmagneten.png Graphic file (type png)
 <use wielmagneten.png>
 Package pdftex.def Info: wielmagneten.png  used on input line 131.
@@ -1148,7 +1148,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 132--132
 [][]|\OT1/phv/m/n/10 Mag-ne-ten ge-mon-teerd in
  []
 
-<hallsensor.png, id=378, 722.7pt x 963.6pt>
+<hallsensor.png, id=383, 722.7pt x 963.6pt>
 File: hallsensor.png Graphic file (type png)
 <use hallsensor.png>
 Package pdftex.def Info: hallsensor.png  used on input line 137.
@@ -1162,12 +1162,12 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 142.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 142.
-<rfidlezer.png, id=382, 582.175pt x 514.92375pt>
+<rfidlezer.png, id=387, 582.175pt x 514.92375pt>
 File: rfidlezer.png Graphic file (type png)
 <use rfidlezer.png>
 Package pdftex.def Info: rfidlezer.png  used on input line 155.
 (pdftex.def)             Requested size: 160.84036pt x 142.26378pt.
-<rfidlezermontage.png, id=383, 2055.68pt x 1541.76pt>
+<rfidlezermontage.png, id=388, 2055.68pt x 1541.76pt>
 File: rfidlezermontage.png Graphic file (type png)
 <use rfidlezermontage.png>
 Package pdftex.def Info: rfidlezermontage.png  used on input line 161.
@@ -1191,12 +1191,12 @@ Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 169.
 [18 <./wielmagneten.png> <./hallsensor.png> <./rfidlezer.png> <./rfidlezermonta
 ge.png>]
-<hc05.png, id=391, 225.84375pt x 225.84375pt>
+<hc05.png, id=396, 225.84375pt x 225.84375pt>
 File: hc05.png Graphic file (type png)
 <use hc05.png>
 Package pdftex.def Info: hc05.png  used on input line 182.
 (pdftex.def)             Requested size: 142.27196pt x 142.26378pt.
-<bluetoothenrfidlezer.png, id=392, 3035.34pt x 4047.12pt>
+<bluetoothenrfidlezer.png, id=397, 3035.34pt x 4047.12pt>
 File: bluetoothenrfidlezer.png Graphic file (type png)
 <use bluetoothenrfidlezer.png>
 Package pdftex.def Info: bluetoothenrfidlezer.png  used on input line 188.
@@ -1223,7 +1223,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 220.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 220.
-<rpi3.png, id=401, 1379.90532pt x 813.0375pt>
+<rpi3.png, id=406, 1379.90532pt x 813.0375pt>
 File: rpi3.png Graphic file (type png)
 <use rpi3.png>
 Package pdftex.def Info: rpi3.png  used on input line 224.
@@ -1347,7 +1347,7 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 102.
 [24]
-<bluetoothoutputvoorbeeldbijgesneden.png, id=445, 577.55775pt x 357.13425pt>
+<bluetoothoutputvoorbeeldbijgesneden.png, id=450, 577.55775pt x 357.13425pt>
 File: bluetoothoutputvoorbeeldbijgesneden.png Graphic file (type png)
 <use bluetoothoutputvoorbeeldbijgesneden.png>
 Package pdftex.def Info: bluetoothoutputvoorbeeldbijgesneden.png  used on input
@@ -1357,10 +1357,39 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 109.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 109.
-<arduinoisp.png, id=448, 381.69267pt x 216.007pt>
+<arduinoflowchart.png, id=453, 519.9425pt x 934.49126pt>
+File: arduinoflowchart.png Graphic file (type png)
+<use arduinoflowchart.png>
+Package pdftex.def Info: arduinoflowchart.png  used on input line 114.
+(pdftex.def)             Requested size: 359.37955pt x 645.87756pt.
+Package babel Info: Redefining dutch shorthand "|
+(babel)             in language  on input line 117.
+Package babel Info: Redefining dutch shorthand "~
+(babel)             in language  on input line 117.
+Package babel Info: Redefining dutch shorthand "|
+(babel)             in language  on input line 117.
+Package babel Info: Redefining dutch shorthand "~
+(babel)             in language  on input line 117.
+ [25 <./bluetoothoutputvoorbeeldbijgesneden.png>]
+Overfull \vbox (22.0pt too high) has occurred while \output is active []
+
+Package babel Info: Redefining dutch shorthand "|
+(babel)             in language  on input line 117.
+Package babel Info: Redefining dutch shorthand "~
+(babel)             in language  on input line 117.
+Package babel Info: Redefining dutch shorthand "|
+(babel)             in language  on input line 117.
+Package babel Info: Redefining dutch shorthand "~
+(babel)             in language  on input line 117.
+ [26 <./arduinoflowchart.png>]
+Package babel Info: Redefining dutch shorthand "|
+(babel)             in language  on input line 118.
+Package babel Info: Redefining dutch shorthand "~
+(babel)             in language  on input line 118.
+<arduinoisp.png, id=467, 381.69267pt x 216.007pt>
 File: arduinoisp.png Graphic file (type png)
 <use arduinoisp.png>
-Package pdftex.def Info: arduinoisp.png  used on input line 114.
+Package pdftex.def Info: arduinoisp.png  used on input line 123.
 (pdftex.def)             Requested size: 426.79135pt x 241.53067pt.
 )
 Package babel Info: Redefining dutch shorthand "|
@@ -1371,16 +1400,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 94.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 94.
- [25 <./bluetoothoutputvoorbeeldbijgesneden.png>]
-Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 94.
-Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 94.
-Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 94.
-Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 94.
- [26 <./arduinoisp.png>]
+ [27 <./arduinoisp.png>]
 Hoofdstuk 6.
 Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 94.
@@ -1411,7 +1431,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 11.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 11.
- [27
+ [28
 
 ]
 Package babel Info: Redefining dutch shorthand "|
@@ -1439,7 +1459,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 96.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 96.
- [28]
+ [29]
 Hoofdstuk 7.
 Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 96.
@@ -1454,7 +1474,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 98.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 98.
- [29
+ [30
 
 ]
 Hoofdstuk 8.
@@ -1463,7 +1483,7 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 98.
 (besluit.tex)
-<back_fiiw_gent.pdf, id=474, 597.432pt x 845.07718pt>
+<back_fiiw_gent.pdf, id=486, 597.432pt x 845.07718pt>
 File: back_fiiw_gent.pdf Graphic file (type pdf)
 <use back_fiiw_gent.pdf>
 Package pdftex.def Info: back_fiiw_gent.pdf  used on input line 101.
@@ -1472,7 +1492,7 @@ File: back_fiiw_gent.pdf Graphic file (type pdf)
 <use back_fiiw_gent.pdf>
 Package pdftex.def Info: back_fiiw_gent.pdf  used on input line 101.
 (pdftex.def)             Requested size: 597.43054pt x 845.07512pt.
-<back_fiiw_gent.pdf, id=477, page=1, 597.432pt x 845.07718pt>
+<back_fiiw_gent.pdf, id=489, page=1, 597.432pt x 845.07718pt>
 File: back_fiiw_gent.pdf Graphic file (type pdf)
 <use back_fiiw_gent.pdf, page 1>
 Package pdftex.def Info: back_fiiw_gent.pdf , page1 used on input line 101.
@@ -1489,7 +1509,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 101.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 101.
- [30
+ [31
 
 ]
 File: back_fiiw_gent.pdf Graphic file (type pdf)
@@ -1512,21 +1532,21 @@ File: back_fiiw_gent.pdf Graphic file (type pdf)
 <use back_fiiw_gent.pdf, page 1>
 Package pdftex.def Info: back_fiiw_gent.pdf , page1 used on input line 101.
 (pdftex.def)             Requested size: 597.45789pt x 845.1138pt.
- [31 <./back_fiiw_gent.pdf>]
+ [32 <./back_fiiw_gent.pdf>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 102.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
  (VerslagBachelorProef.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 102.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `VerslagBachelorProef.out' has not changed.
-(rerunfilecheck)             Checksum: 5FEA562DC5E01AE9C068E8057D5DA2E6;2897.
+(rerunfilecheck)             Checksum: B2869AA10E1540ADF3621892BA946517;2972.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 102.
  ) 
 Here is how much of TeX's memory you used:
- 12169 strings out of 493303
- 177827 string characters out of 3138839
- 297896 words of memory out of 3000000
- 15346 multiletter control sequences out of 15000+200000
+ 12181 strings out of 493303
+ 178031 string characters out of 3138839
+ 298062 words of memory out of 3000000
+ 15354 multiletter control sequences out of 15000+200000
  57882 words of font info for 104 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,18n,51p,1492b,1001s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1541,9 +1561,9 @@ fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program
  2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
 rw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on VerslagBachelorProef.pdf (33 pages, 48176244 bytes).
+Output written on VerslagBachelorProef.pdf (34 pages, 48196915 bytes).
 PDF statistics:
- 561 PDF objects out of 1000 (max. 8388607)
- 113 named destinations out of 1000 (max. 500000)
- 490 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 574 PDF objects out of 1000 (max. 8388607)
+ 116 named destinations out of 1000 (max. 500000)
+ 503 words of extra memory for PDF output out of 10000 (max. 10000000)
 
