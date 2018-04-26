@@ -1,7 +1,7 @@
 Dit hoofdstuk behandelt de werking van onze software waarmee we onze hardware aansturen. We bespreken op welke manier we met de Arduino de IR-sensoren inlezen en aan de hand hiervan bijsturen, hoe we de snelheid meten, hoe RFID-tags ingelezen worden en hoe de Bluetooth-communicatie met de Raspberry Pi werkt.
 
 \section{IR-sensoren inlezen}
-Voor het inlezen van de sensoren wordt gebruik gemaakt van \'e\'en analoge pin, met deze pin lezen we de waardes van alle acht sensoren in via een multiplexer. Deze multiplexer wordt aangestuurd aan de hand van drie digitale pinnen die dienst doen als bit select. Om de tijdsduur voor het inlezen van de infrarood-sensoren via de multiplexer te minimaliseren lezen we deze in aan de hand van Gray-code. De volgorde van inlezen wordt verduidelijkt in tabel~\vref{table:graycode}. De ingelezen waarden worden opgeslagen in een array van acht integers. De waardes in de array worden vervolgens gedigitaliseerd aan de hand van een grenswaarde, hiervoor hebben we de waarde $300$ gekozen. Indien de sensorwaarde onder deze grens ligt ziet de sensor een witte ondergrond en krijgt dit digitaal een waarde '$1$', als de waarde boven de grens ligt komt dit overeen met een zwarte ondergrond en een digitale waarde '$0$'. 
+Voor het inlezen van de sensoren wordt gebruik gemaakt van \'e\'en analoge pin, met deze pin lezen we de analoge waardes in functie van de uitgangsspanningen van alle acht sensoren in via een multiplexer. Op deze manier kan software-matig onderscheid gemaakt worden tussen wit of zwarte ondergrond. De multiplexer wordt aangestuurd aan de hand van drie digitale pinnen die dienst doen als bit select. Om de tijdsduur voor het inlezen van de infrarood-sensoren via de multiplexer te minimaliseren lezen we deze in aan de hand van Gray-code. De volgorde van inlezen wordt verduidelijkt in tabel~\vref{table:graycode}. De ingelezen waarden worden opgeslagen in een array van acht integers. De waardes in de array worden vervolgens gedigitaliseerd aan de hand van een grenswaarde, hiervoor hebben we de waarde $300$ gekozen. Indien de sensorwaarde onder deze grens ligt ziet de sensor een witte ondergrond en krijgt dit digitaal een waarde '$1$', als de waarde boven de grens ligt komt dit overeen met een zwarte ondergrond en een digitale waarde '$0$'. 
 
 \begin{table}[H]
 	\centering
@@ -107,3 +107,10 @@ Het verzenden en lezen van data wordt nu gedaan aan de hand van een Python-scrip
 \end{figure}
 
 \section{Custom board progammeren}
+In het ontwerp hebben we geen voorzieningen getroffen om de ATMega-chip te programmeren via USB-aansluiting, we voorzagen echter wel ICSP-pinnen. Om onze eigen Arduino te programmeren gebruiken we een andere Arduino Uno die dienst doet als programmer. Op deze Arduino uploaden we het ArduinoISP-programma uit de standaard Arduino-libraries. Vervolgens verbinden we ons te programmeren board met deze Arduino gebaseerd op de verbindingen in figuur~\vref{fig:arduinoisp}. Om de programmer-Arduino via USB-interface verbonden is aan de computer plaatsen we nog een condensator van $10\,\mathrm{\mu F}$ tussen de reset en ground van de programmer. Vervolgens branden we de bootloader naar de ATMega-chip op ons eigen board. Onze custom board kan nu geprogrammeerd worden.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{arduinoisp.png}
+	\caption{Aansluitingen ICSP-pinnen om custom board te programmeren\label{fig:arduinoisp}}
+\end{figure}
