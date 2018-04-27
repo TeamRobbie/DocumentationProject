@@ -28,7 +28,7 @@ We lichten ook even de dual full-bridge driver toe. Deze chip is verantwoordelij
 
 
 \subsubsection{Board}
-Nu onze eigen schematic afgerond is, kunnen we beginnen boarden. We trachtten de PCB zo klein mogelijk te maken door de componenten zowel op de top- als de bottom-layer te plaatsen. We hebben ervoor gekozen de twee chips (de ATMEGA328P en de L298P) op de bottom-layer te plaatsen samen met de de nodige ontkoppelcondensatoren. De andere componenten staan op de top-layer. Na het routing proces bestaat onze PCB uit 20 via's. We hebben ook een massavlak voorzien aan de bovenkant. De top- en bottom-layer van de PCB kan u vinden in respectievelijk figuur~\vref{fig:topboard} en figuur~\vref{fig:bottomboard}.
+Nu onze eigen schematic afgerond is, kunnen we beginnen boarden. We trachtten de PCB zo klein mogelijk te maken door de componenten zowel op de top- als de bottom-layer te plaatsen. We hebben ervoor gekozen de twee chips (de ATMEGA328P en de L298P) op de bottom-layer te plaatsen samen met de nodige ontkoppelcondensatoren. De andere componenten staan op de top-layer. Na het routing proces bestaat onze PCB uit 20 via's. We hebben ook een massavlak voorzien aan de bovenkant. De top- en bottom-layer van de PCB kan u vinden in respectievelijk figuur~\vref{fig:topboard} en figuur~\vref{fig:bottomboard}.
 
 \begin{figure}[H]
 	\centering
@@ -61,7 +61,7 @@ Het ontwerp is volledig af en we kunnen onze custom Arduino beginnen maken. Na h
  
 \section{Sensoren en toebehoren}
 \subsection{Infrarood-sensoren}
-Zoals we reeds vermeldden is het de bedoeling dat ons voertuig een parcours autonoom kan afleggen dat afgebakend wordt door twee volle witte lijnen op een zwarte ondergrond met een witte stippellijn tussen beide. Om dergelijk parcours te kunnen navigeren zullen we onderscheid moeten kunnen maken tussen de witte en zwarte ondergrond. Voor dergelijke toepassing kiezen we voor infrarood-sensoren. We zullen hiervoor gebruik maken van de TCRT-5000-sensor, zoals te zien is in figuur~\vref{fig:tcrt5000}. 
+Zoals we reeds vermeldden is het de bedoeling dat ons voertuig een parcours autonoom kan afleggen dat afgebakend wordt door twee volle witte lijnen op een zwarte ondergrond met een witte stippellijn tussen beide. Om dergelijk parcours te kunnen navigeren moet onderscheid gemaakt kunnen worden tussen de witte en zwarte ondergrond. Voor dergelijke toepassing kozen we voor infrarood-sensoren. Meer bepaald wordt gebruik gemaakt van de TCRT-5000L sensor, zoals te zien is in figuur~\vref{fig:tcrt5000}. 
 
 \begin{figure}[H]
 	\centering
@@ -70,7 +70,7 @@ Zoals we reeds vermeldden is het de bedoeling dat ons voertuig een parcours auto
 \end{figure}
 
 \subsubsection*{Sensor-cel}
-De TCRT5000 bestaat uit 2 belangrijke onderdelen: ten eerste hebben we een IR-led , deze led wordt aangestuurd met een voorschakelweerstand van $330\,\mathrm{\Omega}$. Ten tweede heeft de TCRT5000 een transistor die zich in essentie als infrarood-gevoelige weerstand gedraagt, samen met een serieweerstand van $68\,\mathrm{k\Omega}$ vormt dit een spanningsdeler. De IR-led zal infraroodgolven uitstralen, naargelang de ondergrond waar dit op invalt worden deze golven quasi volledig of amper gereflecteerd. Bij een witte ondergrond zal de reflectie groot zijn en de weerstand tussen collector en emittor bijgevolg zeer klein zijn, omgekeerd hebben we bij een zwarte ondergrond een grote weerstand. De uitgangsspanning bij de spanningsdeler met de weerstand en de TCRT5000-pinnen zoals u ziet in figuur~\vref{fig:tcrt5000cel} geeft dus een maat voor de reflectieco\"effici\"ent van het oppervlak onder de sensor. De waarde van deze spanning wordt door een analoge pin ingelezen, uit deze inlezing kan dus afgeleid worden of de sensor zich boven een witte of een zwarte ondergrond bevindt. Bij een witte ondergrond bedraagt deze waarde ongeveer $30$ tot $50$ terwijl een zwarte ondergrond in een waarde tussen de $600$ en $800$ resulteert.
+De TCRT5000 bestaat uit 2 belangrijke onderdelen: ten eerste hebben we een IR-led , deze led wordt aangestuurd met een voorschakelweerstand van $330\,\mathrm{\Omega}$. Ten tweede heeft de TCRT5000 een transistor die zich in essentie als infrarood-gevoelige weerstand gedraagt, samen met een serieweerstand van $68\,\mathrm{k\Omega}$ realiseert dit een spanningsdeler van onze voedingsspanning tussen de pinnen van de sensor en de weerstand. De IR-led zal infraroodgolven uitstralen, naargelang de ondergrond waar deze op invallen worden deze golven quasi volledig of amper gereflecteerd. Bij een witte ondergrond is de reflectie groot en wordt de weerstand tussen de collector- en emittor-klemmen van de sensor bijgevolg zeer klein, omgekeerd hebben we bij een zwarte ondergrond een grote weerstand tussen deze klemmen. De uitgangsspanning bij de spanningsdeler met de weerstand en de TCRT5000-pinnen zoals u ziet in figuur~\vref{fig:tcrt5000cel} geeft dus een maat voor de reflectieco\"effici\"ent van het oppervlak onder de sensor. De waarde van deze spanning wordt door een analoge pin ingelezen, uit deze inlezing kan dus afgeleid worden of de sensor zich boven een witte of een zwarte ondergrond bevindt. Bij een witte ondergrond bedraagt deze waarde ongeveer $30$ tot $50$ terwijl een zwarte ondergrond in een waarde tussen de $600$ en $800$ resulteert.
 
 \begin{figure}[H]
 	\centering
@@ -78,13 +78,13 @@ De TCRT5000 bestaat uit 2 belangrijke onderdelen: ten eerste hebben we een IR-le
 	\caption{Sensor-cel met TCRT 5000\label{fig:tcrt5000cel}}
 \end{figure}
 
-\subsubsection*{Sensor-arrays}
-Om de positie van ons voertuig te detecteren ten opzichte van een witte zijlijn maakten we twee sensor-arrays van elk vier sensoren die via een multiplexer op een aparte printplaat ingelezen worden in \'e\'en analoge pin. We positioneerden deze linksvooraan en linksachteraan het wagentje met behulp van 3D-geprinte en verstelbare armen, op deze manier kunnen we de zijlijn langs de linkerkant van het parcours detecteren. Het voordeel hiervan is ook dat we in de bochten van de baan vrij stabiel kunnen bijsturen. Na een aantal verschillende positioneringen bleek dit de beste resultaten op te leveren. De positionering van de sensor-arrays is te zien in figuur~\vref{fig:sensorarraypositionering}. In figuren~\vref{fig:sensorarrayvooraan} en~\vref{fig:sensorarrayachteraan} ziet u de twee verschillende sensorarrays aan de onderzijde.
+\subsubsection*{Sensor arrays}
+Om de positie van ons voertuig te detecteren ten opzichte van een witte zijlijn maakten we twee sensor arrays van elk vier sensoren die via een multiplexer op een aparte printplaat ingelezen worden in \'e\'en analoge pin. We positioneerden deze linksvooraan en linksachteraan het wagentje met behulp van 3D-geprinte en verstelbare armen, op deze manier kunnen we de zijlijn langs de linkerkant van het parcours detecteren. Het voordeel hiervan is ook dat we in de bochten van de baan vrij stabiel kunnen bijsturen. Na een aantal verschillende positioneringen bleek dit de beste resultaten op te leveren. De positionering van de sensor arrays is te zien in figuur~\vref{fig:sensorarraypositionering}. In figuren~\vref{fig:sensorarrayvooraan} en~\vref{fig:sensorarrayachteraan} ziet u de twee verschillende sensor arrays aan de onderzijde.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[height=5cm]{sensorarraypositionering.png}
-	\caption{Sensorarray op het wagentje ten opzichte van de zijlijn\label{fig:sensorarraypositionering}}
+	\caption{Sensor array op het wagentje ten opzichte van de zijlijn\label{fig:sensorarraypositionering}}
 \end{figure}
 
 \begin{figure}[H]
@@ -92,20 +92,20 @@ Om de positie van ons voertuig te detecteren ten opzichte van een witte zijlijn 
 	\begin{minipage}[b]{0.4\textwidth}
 		\centering
 		\includegraphics[height=5cm]{sensorarrayvooraanonderkant.png}
-		\caption{Sensorarray linksvooraan}
+		\caption{Sensor array linksvooraan}
 		\label{fig:sensorarrayvooraan}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.4\textwidth}
 		\centering
 		\includegraphics[height=5cm]{sensorarrayachteraanonderkant.png}
-		\caption{Sensorarray linksachteraan}
+		\caption{Sensor array linksachteraan}
 		\label{fig:sensorarrayachteraan}
 	\end{minipage}
 \end{figure}
 
 \subsection{Multiplexers}
-Aangezien we slechts over een beperkt aantal analoge ingangen beschikken zullen we de verschillende sensoren moeten multiplexen, hiervoor maken we gebruik van een CD4051BE-multiplexer op een aparte PCB vooraan het wagentje. In figuur~\vref{fig:cd4051be_pinout} ziet u de pin-out van dit IC, de PCB met de multiplexer is te zien in figuur~\vref{fig:muxvooraan}. We gebruiken deze multiplexer om de acht sensoren in de twee sensor-arrays in te kunnen lezen op \'e\'en analoge pin: A0. We gebruiken hiervoor drie digitale pinnen D0,D1 en D2, die de bit selects van de multiplexer aansturen.
+Aangezien we slechts over een beperkt aantal analoge ingangen beschikken moeten de verschillende sensor-outputs gemultiplexed worden, hiervoor maken we gebruik van een CD4051BE-multiplexer op een aparte PCB vooraan het wagentje. In figuur~\vref{fig:cd4051be_pinout} ziet u de pin-out van dit IC, de PCB met de multiplexer is te zien in figuur~\vref{fig:muxvooraan}. We gebruiken deze multiplexer om de acht sensoren in de twee sensor arrays in te kunnen lezen op \'e\'en analoge pin: A0. We gebruiken ook drie digitale pinnen D0,D1 en D2, die de bit selects van de multiplexer aansturen.
 
 \begin{figure}[H]
 	\centering
@@ -122,7 +122,7 @@ Aangezien we slechts over een beperkt aantal analoge ingangen beschikken zullen 
 	\end{minipage}
 \end{figure}
 \subsection{Hall-sensor en magneten}\label{sec:hall-sensor}
-Voor het meten van de snelheid zullen we moeten bepalen hoeveel rotaties de wielen maken gedurende een bepaalde periode. Uit dit aantal rotaties kunnen we vervolgens de afgelegde weg en dus ook de snelheid berekenen. We hebben dus een manier nodig om te detecteren wanneer en hoeveel keer het wiel een rotatie maakt, daarvoor kozen we voor het gebruik van een Hall-sensor die het passeren van magneten gemonteerd in de wielas detecteert. De gebruikte Hall-sensor is de SS41 digitale Hall-sensor van Honeywell die gevoed wordt op $5\,\mathrm{V}$. De output van deze sensor wordt aangesloten aan pin D4. In figuur ~\vref{fig:wielmagneten} ziet u de magneten die binnen in de wielas gemonteerd werden met behulp van een 3D-geprinte houder. Merk op dat deze magneten een tegengestelde polarisatie hebben zodanig dat de output van de Hall-sensor correct omschakelt als deze magneten beurtelings passeren. In figuur~\vref{fig:hallsensor} ziet u hoe de Hall-sensor bij het wiel gemonteerd is.
+Voor het meten van de snelheid zullen we moeten bepalen hoeveel rotaties de wielen maken gedurende een bepaalde periode. Uit dit aantal rotaties kunnen we vervolgens de afgelegde weg en dus ook de snelheid berekenen. We hebben dus een manier nodig om te detecteren wanneer en hoeveel keer het wiel een rotatie maakt. Hiervoor kozen we voor het gebruik van een Hall-sensor die het passeren van magneten gemonteerd in de wielas kan detecteren. De gebruikte Hall-sensor is de SS41 digitale Hall-sensor van Honeywell die gevoed wordt op $5\,\mathrm{V}$. De output van deze sensor wordt aangesloten aan pin D4. In figuur ~\vref{fig:wielmagneten} ziet u de magneten die binnen in de wielas gemonteerd werden met behulp van een 3D-geprinte houder. Merk op dat deze magneten een tegengestelde polarisatie hebben zodanig dat de output van de Hall-sensor correct omschakelt als deze magneten beurtelings passeren. In figuur~\vref{fig:hallsensor} ziet u hoe de Hall-sensor bij het wiel gemonteerd is.
 
 \begin{figure}[H]
 	\centering
@@ -205,7 +205,7 @@ We zagen in voorgaande secties het ontwerp van ons custom Arduino board en de bi
 			D1          & OUT          & MUX Bit select 1  & D11 ($\sim$) & /            & /              \\ \midrule
 			D2          & OUT          & MUX Bit select 0  & D12          & /            & /              \\ \midrule
 			D3 ($\sim$) & OUT          & PWM Motor A       & D13          & /            & /              \\ \midrule
-			D4          & IN           & Hall Sensor Input & A0           & IN            & IR-sensoren    \\ \midrule
+			D4          & IN           & Hall Sensor Input & A0           & IN            & IR sensor array MUX    \\ \midrule
 			D5 ($\sim$) & OUT          & Richting Motor A  & A1           & /            & /              \\ \midrule
 			D6 ($\sim$) & OUT          & Richting Motor B  & A2           & /            & /              \\ \midrule
 			D7          & IN           & Bluetooth RX      & A3           & /            & /              \\ \midrule

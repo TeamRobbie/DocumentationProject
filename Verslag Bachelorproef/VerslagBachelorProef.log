@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.19)  26 APR 2018 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.19)  27 APR 2018 17:37
 entering extended mode
 **./VerslagBachelorProef.tex
 (VerslagBachelorProef.tex
@@ -1357,11 +1357,16 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 109.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 109.
-<arduinoflowchart.png, id=453, 519.9425pt x 934.49126pt>
+<arduinoflowchart.png, id=453, 670.505pt x 934.49126pt>
 File: arduinoflowchart.png Graphic file (type png)
 <use arduinoflowchart.png>
 Package pdftex.def Info: arduinoflowchart.png  used on input line 114.
-(pdftex.def)             Requested size: 359.37955pt x 645.87756pt.
+(pdftex.def)             Requested size: 463.44698pt x 645.87756pt.
+
+Overfull \hbox (36.65562pt too wide) in paragraph at lines 114--115
+ [][] 
+ []
+
 Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 117.
 Package babel Info: Redefining dutch shorthand "~
@@ -1370,7 +1375,7 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 117.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 117.
- [25 <./bluetoothoutputvoorbeeldbijgesneden.png>]
+[25 <./bluetoothoutputvoorbeeldbijgesneden.png>]
 Overfull \vbox (22.0pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining dutch shorthand "|
@@ -1545,7 +1550,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 102.
 Here is how much of TeX's memory you used:
  12181 strings out of 493303
  178031 string characters out of 3138839
- 298062 words of memory out of 3000000
+ 299037 words of memory out of 3000000
  15354 multiletter control sequences out of 15000+200000
  57882 words of font info for 104 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1561,7 +1566,7 @@ fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program
  2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
 rw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on VerslagBachelorProef.pdf (34 pages, 48196915 bytes).
+Output written on VerslagBachelorProef.pdf (34 pages, 48199625 bytes).
 PDF statistics:
  574 PDF objects out of 1000 (max. 8388607)
  116 named destinations out of 1000 (max. 500000)
