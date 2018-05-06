@@ -1,0 +1,14 @@
+# Use a local build dir
+# BUILDDIR=.build
+
+# Define a bib source to automatically copy the reference database on changes
+# BIBSOURCE=$(HOME)/path/to/mendeley.bib
+
+# Leave the pdf file in the temp directory and don't copy it to the source directory
+# COPYPDF=no
+
+# Downsample figures to 256 pixels in the largest dimension to speed up compilation
+# DRAFT=yes
+
+# Use lualatex instead of pdflatex
+# LATEX=lualatex

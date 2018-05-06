@@ -1,0 +1,73 @@
+% KU Leuven latex presentation template
+%
+% © 2012 Michael Hofmann
+%
+% This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+% To view a copy of this license, visit
+% http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative
+% Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+
+\documentclass[t,12pt,english
+\ifx\beamermode\undefined\else,\beamermode\fi
+]{beamer}
+%\setbeameroption{show notes}
+%\setbeameroption{show only notes}
+
+\input{configuratie.tex}
+
+\title{Ontwikkeling van een\\autonoom lijn-volgend\\racevoertuig}
+\author{\mbox{De Bruycker Jorik} \and \mbox{Bolle Jonas}}
+\date{09/05/18}
+\institute{3ELICTE}
+
+\begin{document}
+
+\setbeamertemplate{background canvas}[title]
+
+\begin{frame}[plain,noframenumbering]
+    \titlepage
+\end{frame}
+
+\usedefaultcanvas
+
+\emptyfooter
+\begin{frame}[noframenumbering]{Inhoud}
+        \tableofcontents
+    \end{frame}
+\largefooter
+
+\section{Ontwerp custom Arduino-board}\label{sec:pcb}
+
+\begin{frame}{Eigen Eagle-ontwerp}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{eigenschematic.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Maken van de PCB}
+
+\end{frame}
+
+\section{Infrarood-sensoren}
+\begin{frame}{Titel}
+
+\end{frame}
+\section{Hall-sensor en snelheidsmeting}
+\begin{frame}{Titel}
+
+\end{frame}
+\section{RFID reader}
+\begin{frame}{Titel}
+
+\end{frame}
+\section{Bluetooth communicatie}
+\begin{frame}{Titel}
+
+\end{frame}
+\section{Software flowchart}
+\begin{frame}{Titel}
+
+\end{frame}
+
+\end{document}
